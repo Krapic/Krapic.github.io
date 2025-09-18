@@ -5,16 +5,16 @@ export const EducationSection = () => {
     {
       institution: "Technical Faculty, University of Rijeka",
       degree: "Bachelor's Degree in Computer Science",
-      period: "2020 - 2023",
-      grade: "3.75 GPA",
-      description: "Comprehensive study of computer science fundamentals including algorithms, data structures, software engineering, and system design."
+      period: "2022 - 2025",
+      grade: "3.75 GPA (3 years full-time)",
+      description: "Comprehensive study focusing on algorithms, data structures, embedded systems, microprocessor architectures, and real-time systems programming."
     },
     {
       institution: "Salezijanska klasična gimnazija",
       degree: "Classical Gymnasium",
-      period: "2016 - 2020",
-      grade: "4.5 GPA",
-      description: "Classical education with strong emphasis on analytical thinking, languages, and foundational academic skills."
+      period: "2018 - 2022",
+      grade: "4.5 GPA (4 years)",
+      description: "Classical education with strong emphasis on analytical thinking, mathematics, and foundational academic skills that support technical problem-solving."
     }
   ];
 

@@ -3,34 +3,34 @@ import { Code, Database, Cpu, Globe, Settings, Zap } from "lucide-react";
 export const SkillsSection = () => {
   const skillCategories = [
     {
-      title: "Frontend Development",
-      icon: <Globe className="w-6 h-6" />,
-      skills: ["React", "TypeScript", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Responsive Design"]
-    },
-    {
-      title: "Backend Development",
-      icon: <Database className="w-6 h-6" />,
-      skills: ["Node.js", "Express.js", "RESTful APIs", "Database Design", "SQL", "MongoDB"]
-    },
-    {
-      title: "Embedded Systems",
+      title: "Embedded Programming",
       icon: <Cpu className="w-6 h-6" />,
-      skills: ["C/C++", "Microcontrollers", "Real-time Systems", "Firmware Development", "Hardware Integration"]
+      skills: ["C/C++", "Assembly", "Real-time Programming", "Memory Management", "Debugging Tools", "Cross-compilation"]
     },
     {
-      title: "Programming Languages",
-      icon: <Code className="w-6 h-6" />,
-      skills: ["JavaScript", "TypeScript", "C/C++", "Python", "Java", "Assembly"]
-    },
-    {
-      title: "Tools & Technologies",
+      title: "Microcontrollers & Hardware",
       icon: <Settings className="w-6 h-6" />,
-      skills: ["Git", "GitHub", "VS Code", "Linux", "Docker", "Debugging Tools"]
+      skills: ["ARM Cortex", "AVR", "PIC", "ESP32", "Arduino", "STM32", "Hardware Interfacing", "PCB Design"]
     },
     {
-      title: "Soft Skills",
+      title: "Communication Protocols",
       icon: <Zap className="w-6 h-6" />,
-      skills: ["Problem Solving", "Team Collaboration", "Continuous Learning", "Analytical Thinking", "Communication"]
+      skills: ["UART", "SPI", "I2C", "CAN", "Ethernet", "WiFi", "Bluetooth", "LoRa", "Modbus"]
+    },
+    {
+      title: "Development Tools",
+      icon: <Code className="w-6 h-6" />,
+      skills: ["Eclipse IDE", "Keil uVision", "GCC", "Makefile", "JTAG", "Oscilloscope", "Logic Analyzer"]
+    },
+    {
+      title: "IoT & Systems",
+      icon: <Globe className="w-6 h-6" />,
+      skills: ["RTOS", "FreeRTOS", "Linux Embedded", "Sensor Integration", "Data Acquisition", "Edge Computing"]
+    },
+    {
+      title: "Additional Skills",
+      icon: <Database className="w-6 h-6" />,
+      skills: ["Python", "MATLAB", "Git", "Version Control", "Technical Documentation", "System Architecture"]
     }
   ];
 
@@ -40,7 +40,7 @@ export const SkillsSection = () => {
         <div className="text-center mb-12 section-fade-in">
           <h2 className="text-3xl font-bold mb-4">Skills & Technologies</h2>
           <p className="text-muted-foreground text-lg">
-            Comprehensive skill set spanning web development and embedded systems
+            Specialized expertise in embedded systems and hardware programming
           </p>
         </div>
 

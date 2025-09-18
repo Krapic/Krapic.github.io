@@ -6,36 +6,36 @@ import { Button } from "@/components/ui/button";
 const projects = [
   {
     title: "AI-Maze-Solver",
-    description: "Interaktivna aplikacija za generiranje i rješavanje labirinata pomoću AI algoritama (BFS, DFS, A*) razvijena u sklopu kolegija Programsko inženjerstvo.",
+    description: "Interactive application for generating and solving mazes using AI algorithms (BFS, DFS, A*) developed as part of Software Engineering course.",
     technologies: ["Python", "AI Algorithms", "BFS/DFS", "A*"],
     github: "https://github.com/Krapic/AI-Maze-Solver",
     featured: true
   },
   {
-    title: "KantaShop",
-    description: "Studentski projekt e-trgovine razvijen korištenjem .NET 9 i React 19 tehnologija s osnovnim funkcionalnostima online trgovine.",
-    technologies: ["React 19", ".NET 9", "TypeScript", "E-commerce"],
+    title: "Fitness Tracker with WiFi6 Connectivity",
+    description: "Advanced fitness tracker with WiFi6 connectivity for activity monitoring and health tracking using embedded systems technology.",
+    technologies: ["Embedded C", "WiFi6", "IoT", "Health Sensors", "Real-time Data"],
+    github: "https://github.com/Krapic/Fitness-Tracker-With-Wifi6-Connectivity",
+    featured: true
+  },
+  {
+    title: "KantaShop E-commerce Platform",
+    description: "Student project e-commerce platform developed using .NET 9 and React 19 with comprehensive online store functionality.",
+    technologies: ["React 19", ".NET 9", "TypeScript", "E-commerce", "Full-stack"],
     github: "https://github.com/Krapic/KantaShop",
     featured: true
   },
   {
-    title: "AddressBook",
-    description: "Jednostavan telefonski imenik razvijen s React (TypeScript) i C# ASP.NET Core s Entity Framework Core i SQLite bazom podataka.",
+    title: "AddressBook Application",
+    description: "Simple phone book application developed with React (TypeScript) and C# ASP.NET Core with Entity Framework Core and SQLite database.",
     technologies: ["React", "TypeScript", "ASP.NET Core", "Entity Framework", "SQLite"],
     github: "https://github.com/Krapic/AddressBook",
     featured: false
   },
   {
-    title: "Fitness Tracker with WiFi6 Connectivity",
-    description: "Najnoviji projekt fitness trackera s naprednom WiFi6 povezivošću za praćenje aktivnosti i zdravlja.",
-    technologies: ["IoT", "WiFi6", "Embedded Systems", "Health Tracking"],
-    github: "https://github.com/Krapic/Fitness-Tracker-With-Wifi6-Connectivity",
-    featured: true
-  },
-  {
     title: "Infobip Reservations WebApp",
-    description: "Web aplikacija za rezervacije razvijena kao dio Infobip projekta s naprednim sustavom upravljanja rezervacijama.",
-    technologies: ["C#", "Web Development", "Reservations System"],
+    description: "Web application for reservations developed as part of Infobip project with advanced reservation management system.",
+    technologies: ["C#", "Web Development", "Reservation System", "Backend"],
     github: "https://github.com/Krapic/Infobip-Project-ReservationsWebApp",
     featured: false
   }
@@ -46,7 +46,7 @@ export const ProjectsSection = () => {
     <section id="projects" className="py-20 bg-secondary/30">
       <div className="container mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-12 text-foreground">
-          Projekti
+          Projects
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -119,7 +119,7 @@ export const ProjectsSection = () => {
               aria-label="View all projects on GitHub profile"
             >
               <ExternalLink className="w-4 h-4" />
-              Pogledaj sve projekte na GitHubu
+              View All Projects on GitHub
             </a>
           </Button>
         </div>

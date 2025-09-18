@@ -12,21 +12,19 @@ export const AboutSection = () => {
         <div className="portfolio-card">
           <div className="prose prose-lg max-w-none text-foreground">
             <p className="text-lg leading-relaxed mb-6">
-              I'm a dedicated developer from Rijeka, Croatia, with a comprehensive educational background 
-              and hands-on experience in both web development and embedded systems. My journey began at 
-              Salezijanska klasična gimnazija, where I developed strong analytical and problem-solving skills.
+              Passionate embedded systems developer with expertise in C/C++ programming, microcontroller development, and IoT solutions. 
+              My computer science background has equipped me with strong analytical skills and deep understanding of 
+              hardware-software integration and real-time systems.
             </p>
             <p className="text-lg leading-relaxed mb-6">
-              After completing my bachelor's degree in Computer Science at the Technical Faculty of the 
-              University of Rijeka, I've gained valuable industry experience working as a Full Stack 
-              Developer and currently as an Embedded Developer, allowing me to bridge the gap between 
-              software and hardware development.
+              Currently working as an embedded developer at Torp d.o.o., I specialize in low-level programming, 
+              sensor integration, communication protocols, and firmware development. I enjoy optimizing code for 
+              resource-constrained environments and solving complex hardware interfacing challenges.
             </p>
             <p className="text-lg leading-relaxed">
-              I'm passionate about creating efficient, scalable solutions and constantly learning new 
-              technologies to stay at the forefront of the ever-evolving tech landscape. My diverse 
-              experience enables me to approach problems from multiple perspectives and deliver 
-              comprehensive solutions.
+              My journey began with a strong classical education foundation, followed by comprehensive computer science 
+              studies. This combination provides me with both theoretical knowledge and practical skills to develop 
+              efficient embedded solutions across various industries.
             </p>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/embedded-hero-bg.jpg";
 
 export const HeroSection = () => {
   return (
@@ -19,11 +19,10 @@ export const HeroSection = () => {
             <span className="gradient-text">Frane Krapić</span>
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-4">
-            Full Stack & Embedded Developer
+            <span className="text-primary font-semibold">Embedded Systems & IoT</span> Developer
           </p>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Computer Science graduate from Rijeka, Croatia, passionate about creating 
-            innovative solutions in web development and embedded systems.
+            Computer Science graduate from Rijeka, Croatia. Specializing in embedded systems, IoT solutions, and low-level programming with C/C++.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>

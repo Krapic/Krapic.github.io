@@ -1,36 +1,36 @@
-import { Book, Gamepad2, Mountain, Music, Camera, Coffee } from "lucide-react";
+import { Cpu, Zap, Lightbulb, Wrench, BookOpen, Mountain } from "lucide-react";
 
 export const InterestsSection = () => {
   const interests = [
     {
-      title: "Technology & Innovation",
-      icon: <Coffee className="w-6 h-6" />,
-      description: "Staying up-to-date with the latest tech trends, experimenting with new frameworks and tools"
+      title: "Electronics & Hardware",
+      icon: <Cpu className="w-6 h-6" />,
+      description: "Exploring circuit design, PCB development, and working with various electronic components and sensors"
     },
     {
-      title: "Open Source",
-      icon: <Book className="w-6 h-6" />,
-      description: "Contributing to open-source projects and learning from the developer community"
+      title: "IoT Innovation",
+      icon: <Zap className="w-6 h-6" />,
+      description: "Developing connected devices and exploring edge computing solutions for smart systems"
     },
     {
-      title: "Gaming",
-      icon: <Gamepad2 className="w-6 h-6" />,
-      description: "Exploring game development concepts and enjoying various gaming experiences"
+      title: "Open Source Hardware",
+      icon: <Lightbulb className="w-6 h-6" />,
+      description: "Contributing to open-source hardware projects and learning from the maker community"
+    },
+    {
+      title: "DIY Projects",
+      icon: <Wrench className="w-6 h-6" />,
+      description: "Building custom embedded solutions, automation systems, and experimenting with new technologies"
+    },
+    {
+      title: "Technical Learning",
+      icon: <BookOpen className="w-6 h-6" />,
+      description: "Staying current with embedded systems trends, RTOS development, and low-level optimization techniques"
     },
     {
       title: "Outdoor Activities",
       icon: <Mountain className="w-6 h-6" />,
-      description: "Hiking, exploring Croatia's beautiful coastline and mountains"
-    },
-    {
-      title: "Music",
-      icon: <Music className="w-6 h-6" />,
-      description: "Listening to various genres and exploring the intersection of technology and music"
-    },
-    {
-      title: "Photography",
-      icon: <Camera className="w-6 h-6" />,
-      description: "Capturing moments and exploring digital image processing techniques"
+      description: "Hiking and exploring Croatia's nature, often integrating portable electronics and GPS tracking projects"
     }
   ];
 
@@ -40,7 +40,7 @@ export const InterestsSection = () => {
         <div className="text-center mb-12 section-fade-in">
           <h2 className="text-3xl font-bold mb-4">Interests & Hobbies</h2>
           <p className="text-muted-foreground text-lg">
-            Beyond coding - exploring creativity and continuous learning
+            Beyond coding - exploring hardware innovation and embedded technologies
           </p>
         </div>
 
