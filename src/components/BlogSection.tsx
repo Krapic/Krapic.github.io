@@ -3,25 +3,25 @@ import { BlogCard } from "./BlogCard";
 
 const blogPosts = [
   {
-    title: "Kako sam naučio React u 30 dana - Moje iskustvo i savjeti",
-    excerpt: "Dijeljenje mog putovanja u svijet React-a, od početnika do produktivnog developera. Što sam naučio i koje greške izbjegavati.",
-    date: "15. Veljače 2025",
+    title: "How I Learned React in 30 Days - My Experience and Tips",
+    excerpt: "Sharing my journey into the world of React, from beginner to productive developer. What I learned and which mistakes to avoid.",
+    date: "February 15, 2025",
     readTime: "8 min",
     category: "React",
     image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800&q=80",
   },
   {
-    title: "TypeScript Best Practices - Vodič za čišći kod",
-    excerpt: "Praktični savjeti za pisanje održivog TypeScript koda. Naučite kako izbjeći česte zamke i pisati profesionalni kod.",
-    date: "8. Veljače 2025",
+    title: "TypeScript Best Practices - Guide to Cleaner Code",
+    excerpt: "Practical tips for writing maintainable TypeScript code. Learn how to avoid common pitfalls and write professional code.",
+    date: "February 8, 2025",
     readTime: "12 min",
     category: "TypeScript",
     image: "https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&q=80",
   },
   {
-    title: "Izgradnja RESTful API-ja s Node.js i Express",
-    excerpt: "Korak po korak vodič za izradu skalabilnog backend API-ja. Od postavljanja projekta do deploy-a.",
-    date: "1. Veljače 2025",
+    title: "Building RESTful APIs with Node.js and Express",
+    excerpt: "Step-by-step guide to creating a scalable backend API. From project setup to deployment.",
+    date: "February 1, 2025",
     readTime: "15 min",
     category: "Backend",
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80",
@@ -39,12 +39,12 @@ export const BlogSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="code-font text-sm mb-4 block">// Moj blog</span>
+          <span className="code-font text-sm mb-4 block">// My blog</span>
           <h2 className="section-heading">
-            Najnoviji <span className="text-gradient">Članci</span>
+            Latest <span className="text-gradient">Articles</span>
           </h2>
           <p className="section-subheading mx-auto">
-            Dijelim svoje znanje, iskustva i razmišljanja o web developmentu
+            Sharing my knowledge, experiences, and thoughts on web development
           </p>
         </motion.div>
 
@@ -62,7 +62,7 @@ export const BlogSection = () => {
           className="text-center mt-12"
         >
           <button className="px-8 py-3 glass-card hover:border-primary/50 text-foreground font-medium transition-all duration-300 hover-lift">
-            Prikaži sve članke
+            View all articles
           </button>
         </motion.div>
       </div>
