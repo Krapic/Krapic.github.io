@@ -16,19 +16,19 @@ export const ProjectsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="code-font text-sm mb-4 block">// Moji projekti</span>
+          <span className="code-font text-sm mb-4 block">// My projects</span>
           <h2 className="section-heading">
-            GitHub <span className="text-gradient">Repozitoriji</span>
+            GitHub <span className="text-gradient">Repositories</span>
           </h2>
           <p className="section-subheading mx-auto">
-            Zbirka mojih najznačajnijih projekata i open-source doprinosa
+            A collection of my most significant projects and open-source contributions
           </p>
         </motion.div>
 
         {isLoading && (
           <div className="flex flex-col items-center justify-center py-20 gap-4">
             <Loader2 className="w-10 h-10 text-primary animate-spin" />
-            <p className="text-muted-foreground">Učitavanje repozitorija...</p>
+            <p className="text-muted-foreground">Loading repositories...</p>
           </div>
         )}
 
@@ -40,14 +40,14 @@ export const ProjectsSection = () => {
           >
             <AlertCircle className="w-12 h-12 text-destructive" />
             <p className="text-muted-foreground text-center">
-              Greška pri učitavanju repozitorija.
+              Error loading repositories.
             </p>
             <button
               onClick={() => refetch()}
               className="flex items-center gap-2 px-4 py-2 glass-card hover:border-primary/50 transition-all"
             >
               <RefreshCw className="w-4 h-4" />
-              Pokušaj ponovo
+              Try again
             </button>
           </motion.div>
         )}
@@ -74,7 +74,7 @@ export const ProjectsSection = () => {
                 className="inline-flex items-center gap-2 px-8 py-3 glass-card hover:border-primary/50 text-foreground font-medium transition-all duration-300 hover-lift"
               >
                 <Github className="w-5 h-5" />
-                Pogledaj sve na GitHub-u
+                View all on GitHub
               </a>
             </motion.div>
           </>

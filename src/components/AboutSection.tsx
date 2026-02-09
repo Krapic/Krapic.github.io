@@ -11,7 +11,7 @@ export const AboutSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <span className="code-font text-sm mb-4 block">// O meni</span>
+          <span className="code-font text-sm mb-4 block">// About me</span>
           <h2 className="section-heading">
             <span className="text-gradient">About Me</span>
           </h2>
