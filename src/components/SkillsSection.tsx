@@ -1,22 +1,37 @@
 import { motion } from "framer-motion";
+import { Code, Database, Cpu, Globe, Settings, Zap } from "lucide-react";
 
 const skillCategories = [
   {
-    title: "Frontend",
-    skills: ["HTML5", "CSS3", "JavaScript", "TypeScript", "React", "Tailwind CSS", "Bootstrap"],
+    title: "Embedded Programming",
+    icon: Cpu,
+    skills: ["C/C++", "Assembly", "Real-time Programming", "Memory Management", "Debugging Tools", "Cross-compilation"]
   },
   {
-    title: "Backend & Baze",
-    skills: ["Python", "Java", "C++", "C#", "Node.js", "SQL", "Firebase"],
+    title: "Microcontrollers & Hardware",
+    icon: Settings,
+    skills: ["ARM Cortex", "AVR", "PIC", "ESP32", "Arduino", "STM32", "Hardware Interfacing", "PCB Design"]
   },
   {
-    title: "Mobile & IoT",
-    skills: ["Flutter", "Dart", "ESP32", "Arduino", "Android Studio"],
+    title: "Communication Protocols",
+    icon: Zap,
+    skills: ["UART", "SPI", "I2C", "CAN", "Ethernet", "WiFi", "Bluetooth", "LoRa", "Modbus"]
   },
   {
-    title: "Alati & DevOps",
-    skills: ["Git", "GitHub", "VS Code", "Linux", "Docker", "Matplotlib"],
+    title: "Development Tools",
+    icon: Code,
+    skills: ["Eclipse IDE", "Keil uVision", "GCC", "Makefile", "JTAG", "Oscilloscope", "Logic Analyzer"]
   },
+  {
+    title: "IoT & Systems",
+    icon: Globe,
+    skills: ["RTOS", "FreeRTOS", "Linux Embedded", "Sensor Integration", "Data Acquisition", "Edge Computing"]
+  },
+  {
+    title: "Additional Skills",
+    icon: Database,
+    skills: ["Python", "MATLAB", "Git", "Version Control", "Technical Documentation", "System Architecture"]
+  }
 ];
 
 export const SkillsSection = () => {
@@ -30,16 +45,16 @@ export const SkillsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="code-font text-sm mb-4 block">// Moje vještine</span>
+          <span className="code-font text-sm mb-4 block">// Vještine</span>
           <h2 className="section-heading">
-            Tehnologije i <span className="text-gradient">Alati</span>
+            Skills & <span className="text-gradient">Technologies</span>
           </h2>
           <p className="section-subheading mx-auto">
-            Stalno učim i usavršavam svoje vještine u različitim tehnologijama
+            Specialized expertise in embedded systems and hardware programming
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skillCategories.map((category, categoryIndex) => (
             <motion.div
               key={category.title}
@@ -49,24 +64,20 @@ export const SkillsSection = () => {
               viewport={{ once: true }}
               className="glass-card p-6"
             >
-              <h3 className="text-lg font-semibold mb-4 text-primary">
-                {category.title}
-              </h3>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-primary/10 rounded-lg">
+                  <category.icon className="w-5 h-5 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold">{category.title}</h3>
+              </div>
               <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, skillIndex) => (
-                  <motion.span
+                {category.skills.map((skill) => (
+                  <span
                     key={skill}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{
-                      duration: 0.3,
-                      delay: categoryIndex * 0.1 + skillIndex * 0.05,
-                    }}
-                    viewport={{ once: true }}
-                    className="px-3 py-1.5 text-sm bg-secondary rounded-lg text-foreground hover:bg-primary hover:text-primary-foreground transition-colors cursor-default"
+                    className="px-3 py-1 bg-secondary text-sm rounded-full text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors cursor-default"
                   >
                     {skill}
-                  </motion.span>
+                  </span>
                 ))}
               </div>
             </motion.div>
