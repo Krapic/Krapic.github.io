@@ -36,7 +36,7 @@ export const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="code-font text-sm mb-4 block">// Dobrodošli u moj svijet koda</span>
+          <span className="code-font text-sm mb-4 block">// Welcome to my world of code</span>
         </motion.div>
 
         <motion.h1
@@ -54,7 +54,7 @@ export const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-2xl mx-auto"
         >
-          {profile?.bio || "Full Stack Developer | Stvaram digitalna iskustva koja inspiriraju"}
+          {profile?.bio || "Embedded Developer | Creating efficient hardware-software solutions"}
         </motion.p>
 
         {profile && (
@@ -64,9 +64,9 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="flex items-center justify-center gap-6 mb-8 text-sm text-muted-foreground"
           >
-            <span>{profile.public_repos} repozitorija</span>
+            <span>{profile.public_repos} repositories</span>
             <span className="w-1 h-1 bg-muted-foreground rounded-full" />
-            <span>{profile.followers} pratitelja</span>
+            <span>{profile.followers} followers</span>
             {profile.location && (
               <>
                 <span className="w-1 h-1 bg-muted-foreground rounded-full" />
@@ -91,7 +91,7 @@ export const HeroSection = () => {
             <Github className="w-6 h-6" />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://www.linkedin.com/in/frane-krapic/"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 glass-card hover-lift hover:border-primary/50 transition-all duration-300"
@@ -99,7 +99,7 @@ export const HeroSection = () => {
             <Linkedin className="w-6 h-6" />
           </a>
           <a
-            href={`mailto:${profile?.email || "email@example.com"}`}
+            href="mailto:krapicf@gmail.com"
             className="p-3 glass-card hover-lift hover:border-primary/50 transition-all duration-300"
           >
             <Mail className="w-6 h-6" />
@@ -113,7 +113,7 @@ export const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
         >
-          <span className="text-sm">Istraži moje projekte</span>
+          <span className="text-sm">Explore my projects</span>
           <ArrowDown className="w-4 h-4 animate-bounce" />
         </motion.a>
       </div>

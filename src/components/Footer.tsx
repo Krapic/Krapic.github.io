@@ -15,12 +15,12 @@ export const Footer = () => {
         <div className="flex items-center gap-2">
           <span className="text-xl font-bold glow-text">&lt;/&gt;</span>
           <span className="text-muted-foreground text-sm">
-            © {currentYear} Portfolio. Sva prava pridržana.
+            © {currentYear} Portfolio. All rights reserved.
           </span>
         </div>
 
         <p className="text-sm text-muted-foreground">
-          Izrađeno s <span className="text-primary">♥</span> koristeći React & Tailwind
+          Built with <span className="text-primary">♥</span> using React & Tailwind
         </p>
       </div>
     </motion.footer>
