@@ -45,7 +45,7 @@ export const SkillsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="code-font text-sm mb-4 block">// Vještine</span>
+          <span className="code-font text-sm mb-4 block">// Skills</span>
           <h2 className="section-heading">
             Skills & <span className="text-gradient">Technologies</span>
           </h2>

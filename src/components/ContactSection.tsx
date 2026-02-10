@@ -13,7 +13,7 @@ export const ContactSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="code-font text-sm mb-4 block">// Kontakt</span>
+          <span className="code-font text-sm mb-4 block">// Contact</span>
           <h2 className="section-heading">
             Get In <span className="text-gradient">Touch</span>
           </h2>
