@@ -1,73 +1,52 @@
-# Welcome to your Lovable project
+# 🌐 Frane Krapić — Personal Website
 
-## Project info
+This repository hosts my personal website via **GitHub Pages**, available at [krapic.github.io](https://krapic.github.io).
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+---
 
-## How can I edit this code?
+## 👋 About Me
 
-There are several ways of editing your application.
+I am **Frane Krapić**, an embedded engineer and computer science graduate with hands-on experience in hardware and software development. My main areas of interest are:
 
-**Use Lovable**
+* **Embedded systems** — STM32, nRF, ESP32, Arduino MCU programming
+* **Electronics design** — creating schematics and custom hardware solutions
+* **IoT & Automation** — building smart home systems and MQTT-based device control
+* **Software development** — C/C++, Python, and real-time systems (Zephyr RTOS, FreeRTOS)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+I am passionate about combining hardware and software to create innovative solutions, from low-level firmware up to user-facing applications.
 
-Changes made via Lovable will be committed automatically to this repo.
+---
 
-**Use your preferred IDE**
+## 🎯 Career Goals
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+* Expand my expertise in **embedded engineering** and **IoT solutions**
+* Contribute to innovative projects in **automation, robotics, and smart devices**
+* Explore opportunities and apply embedded systems knowledge in challenging environments
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 📄 Resume Highlights
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+* **Embedded Engineer** at Torp Motors — Developed firmware for STM32, nRF, ESP32 devices and designed electronic schematics for custom hardware.
+* **Academic Background** — Graduated in Computer Engineering at the Faculty of Engineering in Rijeka.
+* **Final Thesis Project** — nRF7002-DK based system for reading accelerometer data (MMA7361), displaying on GC9A01 LCD, and transmitting via MQTT over Wi-Fi.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🌍 Live Website
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+👉 [krapic.github.io](https://krapic.github.io)
 
-**Edit a file directly in GitHub**
+This site serves as a showcase of my skills, CV, and projects.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 📫 Contact
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+* [GitHub](https://github.com/Krapic)
+* [LinkedIn](https://www.linkedin.com/in/frane-krapic/)
+* Email: krapicf@gmail.com
 
-## What technologies are used for this project?
+---
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+✍️ Author: **Frane Krapić**
