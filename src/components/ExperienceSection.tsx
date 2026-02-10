@@ -40,40 +40,55 @@ export const ExperienceSection = () => {
           </p>
         </motion.div>
 
-        <div className="space-y-8">
+        {/* Timeline */}
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-accent to-primary/20" />
+
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
               viewport={{ once: true }}
-              className="glass-card p-6"
+              className={`relative flex items-start gap-8 mb-12 ${
+                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+              }`}
             >
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-primary/10 rounded-lg flex-shrink-0">
-                  <Briefcase className="w-6 h-6 text-primary" />
-                </div>
-                <div className="flex-grow">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                    <h3 className="text-xl font-semibold">{exp.position}</h3>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <Calendar className="w-4 h-4" />
-                      {exp.period}
+              {/* Timeline dot */}
+              <div className="absolute left-6 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary shadow-lg shadow-primary/50 z-10 border-2 border-background" />
+
+              {/* Spacer for layout */}
+              <div className="hidden md:block md:w-1/2" />
+
+              {/* Card */}
+              <div className="ml-14 md:ml-0 md:w-1/2">
+                <div className="glass-card p-6">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="p-2 bg-primary/10 rounded-lg">
+                      <Briefcase className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold">{exp.position}</h3>
+                      <div className="flex items-center gap-2">
+                        <p className="text-primary font-medium text-sm">{exp.company}</p>
+                        <span className="px-2 py-0.5 bg-accent/20 text-accent text-xs rounded-full">
+                          {exp.type}
+                        </span>
+                      </div>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <p className="text-primary font-medium">{exp.company}</p>
-                    <span className="px-2 py-1 bg-accent/20 text-accent text-xs rounded-full">
-                      {exp.type}
-                    </span>
+                  <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
+                    <Calendar className="w-3 h-3" />
+                    {exp.period}
                   </div>
-                  <p className="text-muted-foreground mb-4">{exp.description}</p>
+                  <p className="text-muted-foreground text-sm mb-4">{exp.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-3 py-1 bg-secondary text-sm rounded-full text-muted-foreground"
+                        className="px-3 py-1 bg-secondary text-xs rounded-full text-muted-foreground"
                       >
                         {tech}
                       </span>

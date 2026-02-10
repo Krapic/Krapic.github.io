@@ -5,6 +5,7 @@ import type { GitHubRepo } from "@/hooks/useGitHubRepos";
 interface ProjectCardProps {
   repo: GitHubRepo;
   index: number;
+  onClick: () => void;
 }
 
 const languageColors: Record<string, string> = {
@@ -24,9 +25,11 @@ const languageColors: Record<string, string> = {
   Swift: "bg-orange-400",
   Kotlin: "bg-purple-400",
   Dart: "bg-blue-400",
+  C: "bg-gray-500",
+  "C++": "bg-pink-600",
 };
 
-export const ProjectCard = ({ repo, index }: ProjectCardProps) => {
+export const ProjectCard = ({ repo, index, onClick }: ProjectCardProps) => {
   const languageColor = repo.language ? languageColors[repo.language] || "bg-gray-400" : "";
 
   return (
@@ -35,7 +38,8 @@ export const ProjectCard = ({ repo, index }: ProjectCardProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
       viewport={{ once: true }}
-      className="glass-card overflow-hidden hover-lift group h-full flex flex-col"
+      className="glass-card overflow-hidden hover-lift group h-full flex flex-col cursor-pointer"
+      onClick={onClick}
     >
       <div className="p-6 flex flex-col flex-1">
         <div className="flex items-start justify-between mb-3">
@@ -52,6 +56,7 @@ export const ProjectCard = ({ repo, index }: ProjectCardProps) => {
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
               aria-label="GitHub repository"
+              onClick={(e) => e.stopPropagation()}
             >
               <Github className="w-5 h-5" />
             </a>
@@ -62,6 +67,7 @@ export const ProjectCard = ({ repo, index }: ProjectCardProps) => {
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Live demo"
+                onClick={(e) => e.stopPropagation()}
               >
                 <ExternalLink className="w-5 h-5" />
               </a>
@@ -70,7 +76,7 @@ export const ProjectCard = ({ repo, index }: ProjectCardProps) => {
         </div>
 
         <p className="text-muted-foreground text-sm mb-4 line-clamp-2 flex-1">
-          {repo.description || "Bez opisa"}
+          {repo.description || "No description"}
         </p>
 
         {repo.topics && repo.topics.length > 0 && (

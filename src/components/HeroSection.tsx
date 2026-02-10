@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail, FileDown } from "lucide-react";
 import { useGitHubProfile } from "@/hooks/useGitHubProfile";
+import { CircuitBackground } from "./CircuitBackground";
 
 export const HeroSection = () => {
   const { data: profile } = useGitHubProfile();
@@ -11,6 +12,7 @@ export const HeroSection = () => {
       className="min-h-screen flex items-center justify-center relative overflow-hidden px-6"
     >
       {/* Background Effects */}
+      <CircuitBackground />
       <div className="absolute inset-0 bg-hero-gradient opacity-50" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-slow" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl animate-pulse-slow" />
@@ -103,6 +105,22 @@ export const HeroSection = () => {
             className="p-3 glass-card hover-lift hover:border-primary/50 transition-all duration-300"
           >
             <Mail className="w-6 h-6" />
+          </a>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex items-center justify-center gap-4 mb-12"
+        >
+          <a
+            href="/cv.pdf"
+            download
+            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium rounded-xl hover:opacity-90 transition-all duration-300 hover-lift"
+          >
+            <FileDown className="w-5 h-5" />
+            Download CV
           </a>
         </motion.div>
 
