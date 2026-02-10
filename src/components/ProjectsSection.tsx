@@ -1,10 +1,14 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ProjectCard } from "./ProjectCard";
+import { ProjectDetailModal } from "./ProjectDetailModal";
 import { useGitHubRepos } from "@/hooks/useGitHubRepos";
+import type { GitHubRepo } from "@/hooks/useGitHubRepos";
 import { Github, Loader2, AlertCircle, RefreshCw } from "lucide-react";
 
 export const ProjectsSection = () => {
   const { data: repos, isLoading, isError, refetch } = useGitHubRepos();
+  const [selectedRepo, setSelectedRepo] = useState<GitHubRepo | null>(null);
 
   return (
     <section id="projects" className="py-24 px-6">
@@ -56,7 +60,12 @@ export const ProjectsSection = () => {
           <>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {repos.map((repo, index) => (
-                <ProjectCard key={repo.id} repo={repo} index={index} />
+                <ProjectCard
+                  key={repo.id}
+                  repo={repo}
+                  index={index}
+                  onClick={() => setSelectedRepo(repo)}
+                />
               ))}
             </div>
 
@@ -80,6 +89,8 @@ export const ProjectsSection = () => {
           </>
         )}
       </div>
+
+      <ProjectDetailModal repo={selectedRepo} onClose={() => setSelectedRepo(null)} />
     </section>
   );
 };
