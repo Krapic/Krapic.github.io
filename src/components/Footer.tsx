@@ -18,10 +18,6 @@ export const Footer = () => {
             © {currentYear} Portfolio. All rights reserved.
           </span>
         </div>
-
-        <p className="text-sm text-muted-foreground">
-          Built with <span className="text-primary">♥</span> using React & Tailwind
-        </p>
       </div>
     </motion.footer>
   );
