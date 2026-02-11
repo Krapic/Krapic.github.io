@@ -1,10 +1,19 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin, Mail, FileDown } from "lucide-react";
 import { useGitHubProfile } from "@/hooks/useGitHubProfile";
+import { useTypewriter } from "@/hooks/useTypewriter";
 import { CircuitBackground } from "./CircuitBackground";
+
+const roles = [
+  "Embedded Engineer",
+  "IoT Developer",
+  "Firmware Expert",
+  "Hardware Enthusiast",
+];
 
 export const HeroSection = () => {
   const { data: profile } = useGitHubProfile();
+  const typedText = useTypewriter(roles, 100, 50, 2000);
 
   return (
     <section
@@ -25,11 +34,16 @@ export const HeroSection = () => {
             transition={{ duration: 0.6 }}
             className="mb-8"
           >
-            <img
-              src={profile.avatar_url}
-              alt={profile.name || profile.login}
-              className="w-32 h-32 rounded-full mx-auto border-4 border-primary/30 shadow-xl shadow-primary/20"
-            />
+            <div className="relative w-36 h-36 mx-auto">
+              {/* Animated gradient border */}
+              <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary via-accent to-primary animate-spin-slow opacity-75 blur-sm" />
+              <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary via-accent to-primary animate-spin-slow" />
+              <img
+                src={profile.avatar_url}
+                alt={profile.name || profile.login}
+                className="relative w-36 h-36 rounded-full border-2 border-background object-cover"
+              />
+            </div>
           </motion.div>
         )}
 
@@ -50,14 +64,16 @@ export const HeroSection = () => {
           <span className="text-gradient">{profile?.name || profile?.login || "Krapic"}</span>
         </motion.h1>
 
-        <motion.p
+        {/* Typewriter */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-2xl mx-auto"
+          className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-2xl mx-auto h-8"
         >
-          {profile?.bio || "Embedded Developer | Creating efficient hardware-software solutions"}
-        </motion.p>
+          <span>{typedText}</span>
+          <span className="animate-pulse text-primary">|</span>
+        </motion.div>
 
         {profile && (
           <motion.div
@@ -125,13 +141,13 @@ export const HeroSection = () => {
         </motion.div>
 
         <motion.a
-          href="#projects"
+          href="#about"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
         >
-          <span className="text-sm">Explore my projects</span>
+          <span className="text-sm">Explore my work</span>
           <ArrowDown className="w-4 h-4 animate-bounce" />
         </motion.a>
       </div>
