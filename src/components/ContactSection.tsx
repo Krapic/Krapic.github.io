@@ -60,7 +60,7 @@ export const ContactSection = () => {
               </div>
               <div>
                 <p className="font-medium">Location</p>
-                <p className="text-muted-foreground">Košićevac 15, Rijeka 51000, Croatia</p>
+                <p className="text-muted-foreground">Rijeka 51000, Croatia</p>
               </div>
             </div>
 
