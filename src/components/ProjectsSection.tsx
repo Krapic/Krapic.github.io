@@ -2,9 +2,10 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ProjectCard } from "./ProjectCard";
 import { ProjectDetailModal } from "./ProjectDetailModal";
+import { ProjectCardSkeleton } from "./skeletons/ProjectCardSkeleton";
 import { useGitHubRepos } from "@/hooks/useGitHubRepos";
 import type { GitHubRepo } from "@/hooks/useGitHubRepos";
-import { Github, Loader2, AlertCircle, RefreshCw } from "lucide-react";
+import { Github, AlertCircle, RefreshCw } from "lucide-react";
 
 export const ProjectsSection = () => {
   const { data: repos, isLoading, isError, refetch } = useGitHubRepos();
@@ -30,9 +31,10 @@ export const ProjectsSection = () => {
         </motion.div>
 
         {isLoading && (
-          <div className="flex flex-col items-center justify-center py-20 gap-4">
-            <Loader2 className="w-10 h-10 text-primary animate-spin" />
-            <p className="text-muted-foreground">Loading repositories...</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <ProjectCardSkeleton key={i} />
+            ))}
           </div>
         )}
 

@@ -69,10 +69,12 @@ export const HeroSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-xl md:text-2xl text-muted-foreground mb-4 max-w-2xl mx-auto h-8"
+          className="text-xl md:text-2xl text-muted-foreground mb-4 flex items-center justify-center min-h-[2.5rem]"
         >
-          <span>{typedText}</span>
-          <span className="animate-pulse text-primary">|</span>
+          <span className="inline-block min-w-[16rem] md:min-w-[20rem] text-center">
+            {typedText}
+            <span className="animate-pulse text-primary ml-0.5">|</span>
+          </span>
         </motion.div>
 
         {profile && (
