@@ -1,22 +1,8 @@
 import { motion } from "framer-motion";
-import { GraduationCap, Award, Calendar } from "lucide-react";
+import { resume } from "@/data/resume";
+import { GraduationCap, Calendar } from "lucide-react";
 
-const education = [
-  {
-    institution: "Technical Faculty, University of Rijeka",
-    degree: "Bachelor's Degree in Computer Science",
-    period: "2022 - 2025",
-    grade: "3.75 GPA (3 years full-time)",
-    description: "Comprehensive study focusing on algorithms, data structures, embedded systems, microprocessor architectures, and real-time systems programming."
-  },
-  {
-    institution: "Salezijanska klasična gimnazija",
-    degree: "Classical Gymnasium",
-    period: "2018 - 2022",
-    grade: "4.5 GPA (4 years)",
-    description: "Classical education with strong emphasis on analytical thinking, mathematics, and foundational academic skills that support technical problem-solving."
-  }
-];
+const education = resume.education;
 
 export const EducationSection = () => {
   return (
@@ -34,7 +20,7 @@ export const EducationSection = () => {
             <span className="text-gradient">Education</span>
           </h2>
           <p className="section-subheading mx-auto">
-            Strong academic foundation in computer science and classical studies
+            Computer Engineering, with a specialization in Computer Systems
           </p>
         </motion.div>
 
@@ -69,18 +55,20 @@ export const EducationSection = () => {
                     </div>
                     <div>
                       <h3 className="text-lg font-semibold">{edu.degree}</h3>
-                      <p className="text-accent font-medium text-sm">{edu.institution}</p>
+                      <p className="text-accent font-medium text-sm">
+                        {edu.institution}
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
                     <Calendar className="w-3 h-3" />
                     {edu.period}
                   </div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <Award className="w-4 h-4 text-primary" />
-                    <span className="text-primary font-medium text-sm">{edu.grade}</span>
-                  </div>
-                  <p className="text-muted-foreground text-sm">{edu.description}</p>
+                  {edu.specialization && (
+                    <p className="text-muted-foreground text-sm">
+                      {edu.specialization}
+                    </p>
+                  )}
                 </div>
               </div>
             </motion.div>

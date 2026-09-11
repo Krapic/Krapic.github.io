@@ -57,7 +57,7 @@ export const CircuitBackground = () => {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(175, 80%, 50%, ${p.opacity})`;
+        ctx.fillStyle = `hsla(213, 90%, 68%, ${p.opacity})`;
         ctx.fill();
       }
 
@@ -71,7 +71,7 @@ export const CircuitBackground = () => {
           if (dist < connectionDistance) {
             const opacity = (1 - dist / connectionDistance) * 0.15;
             ctx.beginPath();
-            ctx.strokeStyle = `hsla(175, 80%, 50%, ${opacity})`;
+            ctx.strokeStyle = `hsla(213, 90%, 68%, ${opacity})`;
             ctx.lineWidth = 0.5;
 
             // Draw right-angle circuit lines instead of straight lines

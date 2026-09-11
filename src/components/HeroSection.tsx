@@ -1,13 +1,15 @@
 import { motion } from "framer-motion";
-import { ArrowDown, Github, Linkedin, Mail, FileDown } from "lucide-react";
+import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
 import { useGitHubProfile } from "@/hooks/useGitHubProfile";
 import { useTypewriter } from "@/hooks/useTypewriter";
+import { DownloadCvButton } from "./DownloadCvButton";
+import { resume } from "@/data/resume";
 import { CircuitBackground } from "./CircuitBackground";
 
 const roles = [
-  "Embedded Engineer",
+  resume.title,
   "IoT Developer",
-  "Firmware Expert",
+  "Firmware Developer",
   "Hardware Enthusiast",
 ];
 
@@ -18,7 +20,7 @@ export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden px-6"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden px-6 pt-28 pb-12"
     >
       {/* Background Effects */}
       <CircuitBackground />
@@ -52,7 +54,9 @@ export const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <span className="code-font text-sm mb-4 block">// Welcome to my world of code</span>
+          <span className="code-font text-sm mb-4 block">
+            // Welcome to my world of code
+          </span>
         </motion.div>
 
         <motion.h1
@@ -61,7 +65,7 @@ export const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6"
         >
-          <span className="text-gradient">{profile?.name || profile?.login || "Krapic"}</span>
+          <span className="text-gradient">{resume.name}</span>
         </motion.h1>
 
         {/* Typewriter */}
@@ -132,14 +136,7 @@ export const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="flex items-center justify-center gap-4 mb-12"
         >
-          <a
-            href="/cv.pdf"
-            download
-            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-medium rounded-xl hover:opacity-90 transition-all duration-300 hover-lift"
-          >
-            <FileDown className="w-5 h-5" />
-            Download CV
-          </a>
+          <DownloadCvButton />
         </motion.div>
 
         <motion.a

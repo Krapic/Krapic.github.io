@@ -50,3 +50,13 @@ This site serves as a showcase of my skills, CV, and projects.
 ---
 
 ✍️ Author: **Frane Krapić**
+
+## Maintaining the portfolio and CV
+
+Edit `src/data/resume.ts` to update the shared experience, projects, skills, and contact details. The page and PDF use this same source. Keep dates and claims accurate; add measured results only when they can be substantiated.
+
+`Download CV` dynamically loads jsPDF and generates `Frane-Krapic-CV.pdf` in the browser. No server or GitHub API is required. Locally hosted Lato fonts preserve Croatian characters; their OFL license is included in `public/fonts/OFL.txt`. The PDF contains selectable text and clickable links. Download location follows the visitor's browser settings.
+
+Run `npm run dev` for local development, `npm run build` for production, and `npm test` for checks. The CV test guards the current single-page A4 layout, embedded fonts, and PDF links. When expanding the content, also visually inspect the generated PDF for page breaks.
+
+Selected project descriptions are based on the linked repositories' READMEs, including the documented individual contribution to the team maze project.

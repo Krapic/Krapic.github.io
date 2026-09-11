@@ -1,24 +1,8 @@
 import { motion } from "framer-motion";
+import { resume } from "@/data/resume";
 import { Briefcase, Calendar } from "lucide-react";
 
-const experiences = [
-  {
-    company: "Torp d.o.o.",
-    position: "Embedded Developer",
-    period: "December 2024 - Present",
-    type: "Full-time",
-    description: "Developing embedded systems and firmware solutions. Working with microcontrollers, real-time systems, and low-level programming to create efficient and reliable embedded applications.",
-    technologies: ["C/C++", "Embedded Systems", "Microcontrollers", "Real-time Systems"]
-  },
-  {
-    company: "INCUBIS d.o.o.",
-    position: "Full Stack Developer",
-    period: "October 2023 - February 2024",
-    type: "Internship",
-    description: "Gained hands-on experience in full-stack web development, working on both frontend and backend systems. Collaborated with the development team to build scalable web applications and learn industry best practices.",
-    technologies: ["JavaScript", "React", "Node.js", "Database Management", "Web Development"]
-  }
-];
+const experiences = resume.experience;
 
 export const ExperienceSection = () => {
   return (
@@ -36,7 +20,8 @@ export const ExperienceSection = () => {
             Work <span className="text-gradient">Experience</span>
           </h2>
           <p className="section-subheading mx-auto">
-            Professional journey spanning full-stack web development and embedded systems
+            Professional journey spanning full-stack web development and
+            embedded systems
           </p>
         </motion.div>
 
@@ -70,9 +55,11 @@ export const ExperienceSection = () => {
                       <Briefcase className="w-5 h-5 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-lg font-semibold">{exp.position}</h3>
-                      <div className="flex items-center gap-2">
-                        <p className="text-primary font-medium text-sm">{exp.company}</p>
+                      <h3 className="text-lg font-semibold">{exp.title}</h3>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <p className="text-primary font-medium text-sm">
+                          {exp.company}
+                        </p>
                         <span className="px-2 py-0.5 bg-accent/20 text-accent text-xs rounded-full">
                           {exp.type}
                         </span>
@@ -83,7 +70,11 @@ export const ExperienceSection = () => {
                     <Calendar className="w-3 h-3" />
                     {exp.period}
                   </div>
-                  <p className="text-muted-foreground text-sm mb-4">{exp.description}</p>
+                  <ul className="text-muted-foreground text-sm mb-4 list-disc pl-4 space-y-2">
+                    {exp.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
                   <div className="flex flex-wrap gap-2">
                     {exp.technologies.map((tech, techIndex) => (
                       <span

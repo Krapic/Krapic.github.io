@@ -1,38 +1,12 @@
 import { motion } from "framer-motion";
-import { Code, Database, Cpu, Globe, Settings, Zap } from "lucide-react";
+import { Code, Cpu, Globe } from "lucide-react";
+import { resume } from "@/data/resume";
 
-const skillCategories = [
-  {
-    title: "Embedded Programming",
-    icon: Cpu,
-    skills: ["C/C++", "Assembly", "Real-time Programming", "Memory Management", "Debugging Tools", "Cross-compilation"]
-  },
-  {
-    title: "Microcontrollers & Hardware",
-    icon: Settings,
-    skills: ["ARM Cortex", "AVR", "PIC", "ESP32", "Arduino", "STM32", "Hardware Interfacing", "PCB Design"]
-  },
-  {
-    title: "Communication Protocols",
-    icon: Zap,
-    skills: ["UART", "SPI", "I2C", "CAN", "Ethernet", "WiFi", "Bluetooth", "LoRa", "Modbus"]
-  },
-  {
-    title: "Development Tools",
-    icon: Code,
-    skills: ["Eclipse IDE", "Keil uVision", "GCC", "Makefile", "JTAG", "Oscilloscope", "Logic Analyzer"]
-  },
-  {
-    title: "IoT & Systems",
-    icon: Globe,
-    skills: ["RTOS", "FreeRTOS", "Linux Embedded", "Sensor Integration", "Data Acquisition", "Edge Computing"]
-  },
-  {
-    title: "Additional Skills",
-    icon: Database,
-    skills: ["Python", "MATLAB", "Git", "Version Control", "Technical Documentation", "System Architecture"]
-  }
-];
+const skillCategories = resume.skills.map((group, index) => ({
+  title: group.title,
+  skills: group.items,
+  icon: [Cpu, Globe, Code][index],
+}));
 
 export const SkillsSection = () => {
   return (

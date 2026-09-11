@@ -1,3 +1,4 @@
+import { resume } from "@/data/resume";
 import { motion } from "framer-motion";
 
 export const AboutSection = () => {
@@ -16,7 +17,7 @@ export const AboutSection = () => {
             <span className="text-gradient">About Me</span>
           </h2>
           <p className="section-subheading mx-auto">
-            Passionate developer with a strong foundation in both theoretical and practical aspects of computer science
+            Embedded software, firmware, and hardware-software integration
           </p>
         </motion.div>
 
@@ -28,21 +29,7 @@ export const AboutSection = () => {
           className="glass-card p-8"
         >
           <div className="space-y-6 text-lg leading-relaxed">
-            <p className="text-muted-foreground">
-              Passionate embedded systems developer with expertise in C/C++ programming, microcontroller development, and IoT solutions. 
-              My computer science background has equipped me with strong analytical skills and deep understanding of 
-              hardware-software integration and real-time systems.
-            </p>
-            <p className="text-muted-foreground">
-              Currently working as an embedded developer at Torp d.o.o., I specialize in low-level programming, 
-              sensor integration, communication protocols, and firmware development. I enjoy optimizing code for 
-              resource-constrained environments and solving complex hardware interfacing challenges.
-            </p>
-            <p className="text-muted-foreground">
-              My journey began with a strong classical education foundation, followed by comprehensive computer science 
-              studies. This combination provides me with both theoretical knowledge and practical skills to develop 
-              efficient embedded solutions across various industries.
-            </p>
+            <p className="text-muted-foreground">{resume.summary}</p>
           </div>
         </motion.div>
       </div>
