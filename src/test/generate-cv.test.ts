@@ -21,6 +21,7 @@ describe("downloadable CV", () => {
     expect(pdf).toContain("/ToUnicode");
     expect(pdf).toContain("mailto:krapicf@gmail.com");
     expect(pdf).toContain("https://github.com/Krapic/AI-Maze-Solver");
+    expect(pdf).toContain("https://mipro.hr/MIPRO2026.SSE/ELink.aspx");
   });
 
   it("rejects unavailable fonts rather than downloading a broken document", async () => {

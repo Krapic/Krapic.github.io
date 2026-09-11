@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Github, ExternalLink, Star, GitFork, Eye, Calendar, Code } from "lucide-react";
 import type { GitHubRepo } from "@/hooks/useGitHubRepos";
+import { resume } from "@/data/resume";
 
 interface ProjectDetailModalProps {
   repo: GitHubRepo | null;
@@ -9,6 +10,7 @@ interface ProjectDetailModalProps {
 
 export const ProjectDetailModal = ({ repo, onClose }: ProjectDetailModalProps) => {
   if (!repo) return null;
+  const conference = resume.projects.find(project => project.repository === repo.name)?.conference;
 
   const createdDate = new Date(repo.created_at).toLocaleDateString("en-US", {
     year: "numeric",
@@ -54,6 +56,13 @@ export const ProjectDetailModal = ({ repo, onClose }: ProjectDetailModalProps) =
             {repo.description || "No description available."}
           </p>
 
+          {conference && <div className="mb-6 rounded-xl border border-primary/30 bg-primary/5 p-4">
+            <p className="text-primary font-semibold text-sm mb-2">Conference paper · {conference.event}</p>
+            <p className="text-sm font-medium mb-2">{conference.title}</p>
+            <p className="text-muted-foreground text-xs">{conference.authors}</p>
+            <p className="text-muted-foreground text-xs mt-1">{conference.date}</p>
+            <a href={conference.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary text-sm mt-3 hover:underline">View official conference program <ExternalLink size={14} /></a>
+          </div>}
           {/* Stats */}
           <div className="grid grid-cols-3 gap-4 mb-6">
             <div className="text-center p-3 bg-secondary/50 rounded-lg">

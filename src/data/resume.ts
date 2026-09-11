@@ -46,6 +46,13 @@ export const resume = {
       category: "Embedded systems / IoT",
       number: "01",
       repository: "Fitness-Tracker-With-Wifi6-Connectivity",
+      conference: {
+        event: "MIPRO 2026 / SSE",
+        title: "Fitness Tracker Connected to the Internet Using a Wi-Fi Network",
+        authors: "F. Krapić, M. Tomić",
+        date: "26 May 2026, Opatija, Croatia",
+        url: "https://mipro.hr/MIPRO2026.SSE/ELink.aspx",
+      },
       description:
         "An embedded research prototype connecting motion sensing, an on-device interface, and wireless telemetry without a phone gateway.",
       detail:
@@ -58,6 +65,7 @@ export const resume = {
       category: "Algorithms / Software engineering",
       number: "02",
       repository: "AI-Maze-Solver",
+      conference: null,
       description:
         "An interactive application for generating mazes and exploring how different search algorithms solve them.",
       detail:

@@ -85,9 +85,14 @@ export async function createCv() {
   }
   section("Selected projects", 33);
   for (const project of resume.projects) {
-    room(26);
+    room(project.conference ? 42 : 26);
     text(project.name, 10.5, "bold", "#14232b");
     text(project.cv, 9.5);
+    if (project.conference) {
+      text(`Conference paper: ${project.conference.title}`, 9);
+      text(`${project.conference.authors} | ${project.conference.date}`, 8.5);
+      link(`${project.conference.event} - Official conference program`, project.conference.url);
+    }
     link(
       `github.com/Krapic/${project.repository}`,
       `${resume.github}/${project.repository}`,

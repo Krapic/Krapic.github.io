@@ -8,9 +8,9 @@ const interests = [
     description: "Exploring circuit design, PCB development, and working with various electronic components and sensors"
   },
   {
-    title: "IoT Innovation",
+    title: "Automation & Connected Systems",
     icon: Zap,
-    description: "Developing connected devices and exploring edge computing solutions for smart systems"
+    description: "Exploring how devices, control logic, and user interfaces work together to automate everyday processes."
   },
   {
     title: "Open Source Hardware",
