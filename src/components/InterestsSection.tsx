@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Cpu, Zap, Lightbulb, Wrench, BookOpen, Mountain } from "lucide-react";
+import { Cpu, Zap, Wrench, BookOpen } from "lucide-react";
 
 const interests = [
   {
@@ -13,11 +13,6 @@ const interests = [
     description: "Exploring how devices, control logic, and user interfaces work together to automate everyday processes."
   },
   {
-    title: "Open Source Hardware",
-    icon: Lightbulb,
-    description: "Contributing to open-source hardware projects and learning from the maker community"
-  },
-  {
     title: "DIY Projects",
     icon: Wrench,
     description: "Building custom embedded solutions, automation systems, and experimenting with new technologies"
@@ -26,11 +21,6 @@ const interests = [
     title: "Technical Learning",
     icon: BookOpen,
     description: "Staying current with embedded systems trends, RTOS development, and low-level optimization techniques"
-  },
-  {
-    title: "Outdoor Activities",
-    icon: Mountain,
-    description: "Hiking and exploring Croatia's nature, often integrating portable electronics and GPS tracking projects"
   }
 ];
 
@@ -54,7 +44,7 @@ export const InterestsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           {interests.map((interest, index) => (
             <motion.div
               key={index}

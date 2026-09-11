@@ -9,7 +9,7 @@ export const resume = {
   github: "https://github.com/Krapic",
   linkedin: "https://www.linkedin.com/in/frane-krapic/",
   summary:
-    "Embedded developer at Torp d.o.o., focused on C/C++, microcontroller firmware, and hardware-software integration. My work spans low-level programming, sensor integration, and communication protocols, with a background in full-stack development.",
+    "Computer Engineering master's student and embedded developer at Torp d.o.o., contributing to motor-controller hardware, firmware, debugging, and testing alongside the engineering team.",
   experience: [
     {
       company: "Torp d.o.o.",
@@ -17,15 +17,14 @@ export const resume = {
       period: "Dec 2024 - Present",
       type: "Student employment",
       bullets: [
-        "Develop embedded firmware in C/C++ for microcontroller-based systems.",
-        "Work on sensor integration, communication protocols, and hardware-software interfaces.",
-        "Optimize low-level code for resource-constrained environments and real-time applications.",
+        "Contribute to the development, debugging, and testing of FOC-based PMSM/BLDC motor controllers.",
+        "Assist with hardware schematics, component soldering, and firmware development using STM32, ESP32, and ArtInChip platforms.",
+        "Debug hardware and firmware with oscilloscopes and support functional testing alongside the engineering team.",
+        "Help develop supporting devices used in controller development and testing.",
       ],
       technologies: [
         "C/C++",
-        "Microcontrollers",
-        "Real-time systems",
-        "Firmware",
+        "STM32", "ESP32", "ArtInChip", "FOC / PMSM / BLDC", "Hardware testing",
       ],
     },
     {
@@ -43,6 +42,7 @@ export const resume = {
   projects: [
     {
       name: "Connected fitness tracker",
+      context: "Bachelor's thesis project",
       category: "Embedded systems / IoT",
       number: "01",
       repository: "Fitness-Tracker-With-Wifi6-Connectivity",
@@ -62,6 +62,7 @@ export const resume = {
     },
     {
       name: "AI maze solver",
+      context: "",
       category: "Algorithms / Software engineering",
       number: "02",
       repository: "AI-Maze-Solver",
@@ -94,6 +95,7 @@ export const resume = {
       items: [
         "STM32",
         "ESP32",
+        "ArtInChip",
         "nRF7002 DK",
         "Zephyr RTOS",
         "FreeRTOS",
@@ -114,6 +116,13 @@ export const resume = {
         "Technical documentation",
       ],
     },
+  ],
+  languages: [
+    { name: "Croatian", level: "Native" },
+    { name: "English", level: "Fluent" },
+    { name: "German", level: "Beginner" },
+    { name: "Italian", level: "Beginner" },
+    { name: "Spanish", level: "Currently learning" },
   ],
   education: [{
     institution: "Faculty of Engineering, University of Rijeka",

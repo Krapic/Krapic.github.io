@@ -57,6 +57,12 @@ export const SkillsSection = () => {
             </motion.div>
           ))}
         </div>
+        <div className="glass-card p-6 mt-8">
+          <h3 className="text-lg font-semibold mb-4">Languages</h3>
+          <dl className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+            {resume.languages.map(language => <div key={language.name}><dt className="font-medium">{language.name}</dt><dd className="text-muted-foreground text-sm mt-1">{language.level}</dd></div>)}
+          </dl>
+        </div>
       </div>
     </section>
   );

@@ -45,7 +45,7 @@ export async function createCv() {
   ) => {
     doc.setFont("Lato", weight).setFontSize(size).setTextColor(color);
     const lines = doc.splitTextToSize(value, width - indent) as string[];
-    const height = size * 0.3528 * 1.3;
+    const height = size * 0.3528 * 1.25;
     for (const line of lines) {
       room(height);
       doc.text(line, margin + indent, y);
@@ -54,7 +54,7 @@ export async function createCv() {
   };
   const section = (label: string, minimum = 24) => {
     room(minimum);
-    y += 4;
+    y += 3;
     text(label.toUpperCase(), 9, "bold", "#245a96");
     doc.setDrawColor("#d6dfea").line(margin, y - 1, 193, y - 1);
     y += 3;
@@ -86,7 +86,7 @@ export async function createCv() {
   section("Selected projects", 33);
   for (const project of resume.projects) {
     room(project.conference ? 42 : 26);
-    text(project.name, 10.5, "bold", "#14232b");
+    text(`${project.name}${project.context ? ` | ${project.context}` : ""}`, 10.5, "bold", "#14232b");
     text(project.cv, 9.5);
     if (project.conference) {
       text(`Conference paper: ${project.conference.title}`, 9);
@@ -110,6 +110,8 @@ export async function createCv() {
     text(`${education.institution} | ${education.period}`, 9);
     y += 3;
   }
+  section("Languages", 20);
+  text(resume.languages.map(language => `${language.name}: ${language.level}`).join(" | "), 9);
   for (let page = 1; page <= doc.getNumberOfPages(); page++) {
     doc
       .setPage(page)

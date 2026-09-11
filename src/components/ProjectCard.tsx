@@ -31,7 +31,8 @@ const languageColors: Record<string, string> = {
 };
 
 export const ProjectCard = ({ repo, index, onClick }: ProjectCardProps) => {
-  const conference = resume.projects.find(project => project.repository === repo.name)?.conference;
+  const project = resume.projects.find(project => project.repository === repo.name);
+  const conference = project?.conference;
   const languageColor = repo.language ? languageColors[repo.language] || "bg-gray-400" : "";
 
   return (
@@ -80,6 +81,7 @@ export const ProjectCard = ({ repo, index, onClick }: ProjectCardProps) => {
         {conference && <a href={conference.url} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="self-start mb-3 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-primary text-xs hover:bg-primary/20">
           Conference paper · {conference.event} ↗
         </a>}
+        {project?.context && <p className="text-primary text-xs mb-3">{project.context}</p>}
         <p className="text-muted-foreground text-sm mb-4 line-clamp-2 flex-1">
           {repo.description || "No description"}
         </p>

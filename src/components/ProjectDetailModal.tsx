@@ -10,7 +10,8 @@ interface ProjectDetailModalProps {
 
 export const ProjectDetailModal = ({ repo, onClose }: ProjectDetailModalProps) => {
   if (!repo) return null;
-  const conference = resume.projects.find(project => project.repository === repo.name)?.conference;
+  const project = resume.projects.find(project => project.repository === repo.name);
+  const conference = project?.conference;
 
   const createdDate = new Date(repo.created_at).toLocaleDateString("en-US", {
     year: "numeric",
@@ -52,6 +53,7 @@ export const ProjectDetailModal = ({ repo, onClose }: ProjectDetailModalProps) =
             <h2 className="text-2xl font-bold">{repo.name}</h2>
           </div>
 
+          {project?.context && <p className="text-primary text-sm mb-3">{project.context}</p>}
           <p className="text-muted-foreground mb-6">
             {repo.description || "No description available."}
           </p>
