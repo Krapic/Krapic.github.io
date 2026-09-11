@@ -17,7 +17,7 @@ export const AboutSection = () => {
             <span className="text-gradient">About Me</span>
           </h2>
           <p className="section-subheading mx-auto">
-            Embedded software, firmware, and hardware-software integration
+            Firmware development and hardware integration
           </p>
         </motion.div>
 

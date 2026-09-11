@@ -55,7 +55,7 @@ export const HeroSection = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="code-font text-sm mb-4 block">
-            // Welcome to my world of code
+            // From code to hardware
           </span>
         </motion.div>
 
