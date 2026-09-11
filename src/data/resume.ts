@@ -122,7 +122,6 @@ export const resume = {
     { name: "English", level: "Fluent" },
     { name: "German", level: "Beginner" },
     { name: "Italian", level: "Beginner" },
-    { name: "Spanish", level: "Currently learning" },
   ],
   education: [{
     institution: "Faculty of Engineering, University of Rijeka",
