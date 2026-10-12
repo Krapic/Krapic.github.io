@@ -77,10 +77,13 @@ export const Navigation = () => {
                 {item.label}
               </a>
             ))}
+            <ThemeToggle />
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
+          {/* Mobile: theme toggle + menu button */}
+          <div className="md:hidden flex items-center gap-2">
+            <ThemeToggle />
+            <button
             className="md:hidden text-foreground p-2"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
