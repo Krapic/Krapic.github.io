@@ -44,6 +44,43 @@
     --glass: 220 18% 12%;
     --glass-border: 220 15% 20%;
   }
+
+  .light {
+    --background: 210 40% 96%;
+    --foreground: 220 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+
+    --primary: 213 90% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 220 20% 90%;
+    --secondary-foreground: 220 25% 10%;
+
+    --muted: 220 15% 88%;
+    --muted-foreground: 220 12% 40%;
+
+    --accent: 235 85% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 84.2% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 82%;
+    --input: 220 15% 82%;
+    --ring: 213 90% 50%;
+
+    --glow-primary: 213 90% 50%;
+    --glow-accent: 235 85% 60%;
+    --gradient-start: 213 90% 50%;
+    --gradient-end: 235 85% 60%;
+    --glass: 0 0% 100%;
+    --glass-border: 220 15% 85%;
+  }
 }
 
 @layer base {
@@ -239,4 +276,29 @@ html {
 :focus-visible {
   outline: 2px solid hsl(var(--primary));
   outline-offset: 4px;
+}
+
+/* Custom cursor: hide native cursor only on precise pointers */
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor-active,
+  .custom-cursor-active * {
+    cursor: none;
+  }
+}
+
+/* Smooth theme transition */
+html.light,
+html:not(.light) {
+  color-scheme: light dark;
+}
+html:not(.light) {
+  color-scheme: dark;
+}
+html.light {
+  color-scheme: light;
+}
+body,
+.glass-card,
+section {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
