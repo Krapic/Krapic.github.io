@@ -278,13 +278,6 @@ html {
   outline-offset: 4px;
 }
 
-/* Custom cursor: hide native cursor only on precise pointers */
-@media (hover: hover) and (pointer: fine) {
-  .custom-cursor-active,
-  .custom-cursor-active * {
-    cursor: none;
-  }
-}
 
 /* Smooth theme transition */
 html.light,
