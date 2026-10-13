@@ -10,6 +10,13 @@ import { Github, AlertCircle, RefreshCw } from "lucide-react";
 export const ProjectsSection = () => {
   const { data: repos, isLoading, isError, refetch } = useGitHubRepos();
   const [selectedRepo, setSelectedRepo] = useState<GitHubRepo | null>(null);
+  const [activeFilter, setActiveFilter] = useState<string>("All");
+
+  const languages = repos
+    ? ["All", ...Array.from(new Set(repos.map((r) => r.language).filter((l): l is string => !!l)))]
+    : ["All"];
+  const filteredRepos =
+    activeFilter === "All" ? repos : repos?.filter((r) => r.language === activeFilter);
 
   return (
     <section id="projects" className="py-24 px-6">
@@ -60,8 +67,23 @@ export const ProjectsSection = () => {
 
         {repos && repos.length > 0 && (
           <>
+            <div className="flex flex-wrap justify-center gap-2 mb-10">
+              {languages.map((lang) => (
+                <button
+                  key={lang}
+                  onClick={() => setActiveFilter(lang)}
+                  className={`px-4 py-1.5 rounded-full text-sm code-font transition-all duration-300 ${
+                    activeFilter === lang
+                      ? "bg-primary text-primary-foreground"
+                      : "glass-card text-muted-foreground hover:border-primary/50 hover:text-foreground"
+                  }`}
+                >
+                  {lang}
+                </button>
+              ))}
+            </div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {repos.map((repo, index) => (
+              {filteredRepos?.map((repo, index) => (
                 <ProjectCard
                   key={repo.id}
                   repo={repo}
