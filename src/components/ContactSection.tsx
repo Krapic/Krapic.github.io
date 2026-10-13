@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Github, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ContactForm } from "./ContactForm";
 
 export const ContactSection = () => {
   return (
@@ -92,6 +93,8 @@ export const ContactSection = () => {
             </div>
           </div>
         </motion.div>
+
+        <ContactForm />
       </div>
     </section>
   );

@@ -7,6 +7,8 @@ import { StatsSection } from "@/components/StatsSection";
 import { Footer } from "@/components/Footer";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { SectionDivider } from "@/components/SectionDivider";
+import { LoadingScreen } from "@/components/LoadingScreen";
+import { VisitCounter } from "@/components/VisitCounter";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const ContributionGraph = lazy(() =>
@@ -36,6 +38,9 @@ const InterestsSection = lazy(() =>
 const ContactSection = lazy(() =>
   import("@/components/ContactSection").then((m) => ({ default: m.ContactSection })),
 );
+const JourneySection = lazy(() =>
+  import("@/components/JourneySection").then((m) => ({ default: m.JourneySection })),
+);
 
 const SectionFallback = () => (
   <div className="py-24 px-6">
@@ -54,6 +59,7 @@ const Index = () => {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="min-h-screen bg-background"
     >
+      <LoadingScreen />
       <Navigation />
       <main>
         <HeroSection />
@@ -66,6 +72,8 @@ const Index = () => {
           <EducationSection />
           <SectionDivider />
           <ProjectsSection />
+          <SectionDivider />
+          <JourneySection />
           <SkillsSection />
           <SectionDivider />
           <CertificatesSection />
@@ -75,6 +83,9 @@ const Index = () => {
           <ContactSection />
         </Suspense>
       </main>
+      <div className="pb-6">
+        <VisitCounter />
+      </div>
       <Footer />
       <ScrollToTop />
     </motion.div>
