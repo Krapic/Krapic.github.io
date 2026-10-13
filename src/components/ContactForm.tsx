@@ -31,7 +31,8 @@ export const ContactForm = () => {
     }
     setErrors({});
     setStatus("sending");
-    const { error } = await supabase.from("contact_messages").insert(parsed.data);
+    const { name, email, message } = parsed.data;
+    const { error } = await supabase.from("contact_messages").insert({ name, email, message });
     setStatus(error ? "error" : "sent");
     if (!error) setForm({ name: "", email: "", message: "" });
   };
