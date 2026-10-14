@@ -10,6 +10,8 @@ const achievements = [
       "Co-authored and presented \"Fitness Tracker Connected to the Internet Using a Wi-Fi Network\" at the MIPRO 2026 convention in Opatija, Croatia.",
     date: "May 2026",
     url: resume.projects[0].conference?.url,
+    pdf: miproPaperPdf.url,
+    pdfLabel: "Read full paper (PDF)",
   },
   {
     icon: Award,
@@ -18,6 +20,8 @@ const achievements = [
       "Research prototype on nRF7002 DK / Zephyr RTOS with motion sensing, LVGL interface, and MQTT over TLS telemetry.",
     date: "2025",
     url: undefined,
+    pdf: thesisPdf.url,
+    pdfLabel: "Read full thesis (PDF)",
   },
 ];
 
