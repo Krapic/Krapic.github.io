@@ -69,12 +69,10 @@ export const JourneySection = () => {
                 } pl-16 md:pl-0`}
               >
                 <div
-                  className={`absolute left-6 md:left-auto w-12 h-12 rounded-full glass-card flex items-center justify-center ${
+                  className={`absolute top-0 left-0 w-12 h-12 rounded-full border border-glass-border bg-glass/50 backdrop-blur-xl flex items-center justify-center ${
                     i % 2 === 0
-                      ? "md:-right-6 md:translate-x-1/2"
-                      : "md:-left-6 md:-translate-x-1/2"
-                  } -translate-x-1/2 md:translate-x-0 ${
-                    i % 2 === 0 ? "md:translate-x-1/2" : "md:-translate-x-1/2"
+                      ? "md:left-auto md:right-0 md:translate-x-1/2"
+                      : "md:-translate-x-1/2"
                   }`}
                 >
                   <m.icon className="w-5 h-5 text-primary" />
