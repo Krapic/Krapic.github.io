@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Award, ExternalLink, FileText } from "lucide-react";
 import { resume } from "@/data/resume";
-import miproPaperPdf from "@/assets/mipro-2026-paper.pdf.asset.json";
-import thesisPdf from "@/assets/fitness-tracker-thesis.pdf.asset.json";
+const miproPaperPdf = { url: `${import.meta.env.BASE_URL}docs/mipro-2026-fitness-tracker-paper.pdf` };
+const thesisPdf = { url: `${import.meta.env.BASE_URL}docs/fitness-tracker-bachelor-thesis.pdf` };
 
 const achievements = [
   {

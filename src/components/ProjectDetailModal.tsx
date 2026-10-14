@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Github, ExternalLink, Star, GitFork, Eye, Calendar, Code, FileText } from "lucide-react";
 import type { GitHubRepo } from "@/hooks/useGitHubRepos";
 import { resume } from "@/data/resume";
-import miproPaperPdf from "@/assets/mipro-2026-paper.pdf.asset.json";
+const miproPaperPdf = { url: `${import.meta.env.BASE_URL}docs/mipro-2026-fitness-tracker-paper.pdf` };
 
 interface ProjectDetailModalProps {
   repo: GitHubRepo | null;
