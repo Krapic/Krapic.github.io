@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Award, ExternalLink, FileText } from "lucide-react";
 import { resume } from "@/data/resume";
+import miproPaperPdf from "@/assets/mipro-2026-paper.pdf.asset.json";
+import thesisPdf from "@/assets/fitness-tracker-thesis.pdf.asset.json";
 
 const achievements = [
   {
@@ -10,6 +12,8 @@ const achievements = [
       "Co-authored and presented \"Fitness Tracker Connected to the Internet Using a Wi-Fi Network\" at the MIPRO 2026 convention in Opatija, Croatia.",
     date: "May 2026",
     url: resume.projects[0].conference?.url,
+    pdf: miproPaperPdf.url,
+    pdfLabel: "Read full paper (PDF)",
   },
   {
     icon: Award,
@@ -18,6 +22,8 @@ const achievements = [
       "Research prototype on nRF7002 DK / Zephyr RTOS with motion sensing, LVGL interface, and MQTT over TLS telemetry.",
     date: "2025",
     url: undefined,
+    pdf: thesisPdf.url,
+    pdfLabel: "Read full thesis (PDF)",
   },
 ];
 
@@ -69,6 +75,17 @@ export const CertificatesSection = () => {
                   >
                     View publication
                     <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                )}
+                {a.pdf && (
+                  <a
+                    href={a.pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 mt-3 ml-4 text-sm text-primary hover:underline"
+                  >
+                    {a.pdfLabel}
+                    <FileText className="w-3.5 h-3.5" />
                   </a>
                 )}
               </div>

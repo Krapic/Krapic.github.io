@@ -1,7 +1,8 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Github, ExternalLink, Star, GitFork, Eye, Calendar, Code } from "lucide-react";
+import { X, Github, ExternalLink, Star, GitFork, Eye, Calendar, Code, FileText } from "lucide-react";
 import type { GitHubRepo } from "@/hooks/useGitHubRepos";
 import { resume } from "@/data/resume";
+import miproPaperPdf from "@/assets/mipro-2026-paper.pdf.asset.json";
 
 interface ProjectDetailModalProps {
   repo: GitHubRepo | null;
@@ -64,6 +65,7 @@ export const ProjectDetailModal = ({ repo, onClose }: ProjectDetailModalProps) =
             <p className="text-muted-foreground text-xs">{conference.authors}</p>
             <p className="text-muted-foreground text-xs mt-1">{conference.date}</p>
             <a href={conference.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary text-sm mt-3 hover:underline">View official conference program <ExternalLink size={14} /></a>
+            <a href={miproPaperPdf.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-primary text-sm mt-3 ml-4 hover:underline">Read full paper (PDF) <FileText size={14} /></a>
           </div>}
           {/* Stats */}
           <div className="grid grid-cols-3 gap-4 mb-6">
