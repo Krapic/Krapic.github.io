@@ -77,6 +77,17 @@ export const CertificatesSection = () => {
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 )}
+                {a.pdf && (
+                  <a
+                    href={a.pdf}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 mt-3 ml-4 text-sm text-primary hover:underline"
+                  >
+                    {a.pdfLabel}
+                    <FileText className="w-3.5 h-3.5" />
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
