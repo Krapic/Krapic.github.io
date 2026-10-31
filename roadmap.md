@@ -6,6 +6,7 @@
 - [x] Loading animacija
 - [x] Brojač posjeta
 - [x] Timeline putovanja (JourneySection)
+- [x] Naziv za Google: Frane Krapić (og:site_name i WebSite podaci); profesionalni naslov već postavljen
 
 Otvoreno:
 - Email slanje kontakt poruka — blokirano: treba vlastita domena (korisnik mora postaviti email domenu)
