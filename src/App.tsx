@@ -6,6 +6,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import { LanguageProvider } from "./i18n/LanguageContext";
+import { CommandPalette } from "./components/CommandPalette";
+import { TerminalEasterEgg } from "./components/TerminalEasterEgg";
 
 const queryClient = new QueryClient();
 
@@ -25,10 +28,13 @@ const App = () => {
   }, []);
 
   return (
+    <LanguageProvider>
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <Sonner />
+        <CommandPalette />
+        <TerminalEasterEgg />
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
@@ -38,6 +44,7 @@ const App = () => {
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
+    </LanguageProvider>
   );
 };
 

@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Download, Loader2 } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export function DownloadCvButton() {
+  const { t } = useLanguage();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState(false);
   const download = async () => {
@@ -31,14 +33,14 @@ export function DownloadCvButton() {
         ) : (
           <Download size={17} />
         )}
-        {busy ? "Preparing PDF…" : "Download CV"}
+        {busy ? t.cv.preparing : t.cv.download}
       </button>
       <span className="sr-only" role="status">
-        {busy ? "Generating your PDF CV." : ""}
+        {busy ? t.cv.generating : ""}
       </span>
       {error && (
         <p role="alert" className="download-error">
-          The PDF could not be generated. Please try again.
+          {t.cv.error}
         </p>
       )}
     </div>

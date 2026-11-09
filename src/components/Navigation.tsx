@@ -2,17 +2,20 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import { LanguageToggle } from "./LanguageToggle";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const navItems = [
-  { label: "Home", href: "#hero" },
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Contact", href: "#contact" },
-];
+  { key: "home", href: "#hero" },
+  { key: "about", href: "#about" },
+  { key: "experience", href: "#experience" },
+  { key: "projects", href: "#projects" },
+  { key: "skills", href: "#skills" },
+  { key: "contact", href: "#contact" },
+] as const;
 
 export const Navigation = () => {
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("#hero");
 
@@ -74,19 +77,21 @@ export const Navigation = () => {
                   activeSection === item.href ? "text-foreground nav-link-active" : ""
                 }`}
               >
-                {item.label}
+                {t.nav[item.key]}
               </a>
             ))}
+            <LanguageToggle />
             <ThemeToggle />
           </div>
 
           {/* Mobile: theme toggle + menu button */}
           <div className="md:hidden flex items-center gap-2">
+            <LanguageToggle />
             <ThemeToggle />
             <button
               className="text-foreground p-2"
               onClick={() => setIsOpen(!isOpen)}
-              aria-label="Toggle menu"
+              aria-label={t.nav.toggleMenu}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -111,7 +116,7 @@ export const Navigation = () => {
                   }`}
                   onClick={(e) => handleClick(e, item.href)}
                 >
-                  {item.label}
+                  {t.nav[item.key]}
                 </a>
               ))}
             </div>
