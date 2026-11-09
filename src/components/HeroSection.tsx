@@ -105,7 +105,7 @@ export const HeroSection = () => {
             href={profile?.html_url || "https://github.com/Krapic"}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="GitHub / LinkedIn"
+            aria-label={t.hero.githubProfile}
             className="p-3 glass-card hover-lift hover:border-primary/50 transition-all duration-300"
           >
             <Github className="w-6 h-6" />
@@ -114,13 +114,14 @@ export const HeroSection = () => {
             href="https://www.linkedin.com/in/frane-krapic/"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="GitHub / LinkedIn"
+            aria-label={t.hero.linkedinProfile}
             className="p-3 glass-card hover-lift hover:border-primary/50 transition-all duration-300"
           >
             <Linkedin className="w-6 h-6" />
           </a>
           <a
             href="mailto:krapicf@gmail.com"
+            aria-label={t.hero.emailMe}
             className="p-3 glass-card hover-lift hover:border-primary/50 transition-all duration-300"
           >
             <Mail className="w-6 h-6" />
