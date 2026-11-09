@@ -5,17 +5,12 @@ import { useTypewriter } from "@/hooks/useTypewriter";
 import { DownloadCvButton } from "./DownloadCvButton";
 import { resume } from "@/data/resume";
 import { CircuitBackground } from "./CircuitBackground";
-
-const roles = [
-  resume.title,
-  "IoT Developer",
-  "Firmware Developer",
-  "Hardware Enthusiast",
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export const HeroSection = () => {
   const { data: profile } = useGitHubProfile();
-  const typedText = useTypewriter(roles, 100, 50, 2000);
+  const { t } = useLanguage();
+  const typedText = useTypewriter(t.hero.roles, 100, 50, 2000);
 
   return (
     <section
@@ -55,7 +50,7 @@ export const HeroSection = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="code-font text-sm mb-4 block">
-            // From code to hardware
+            {t.hero.tagline}
           </span>
         </motion.div>
 
@@ -88,9 +83,9 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.25 }}
             className="flex items-center justify-center gap-6 mb-8 text-sm text-muted-foreground"
           >
-            <span>{profile.public_repos} repositories</span>
+            <span>{profile.public_repos} {t.hero.repositories}</span>
             <span className="w-1 h-1 bg-muted-foreground rounded-full" />
-            <span>{profile.followers} followers</span>
+            <span>{profile.followers} {t.hero.followers}</span>
             {profile.location && (
               <>
                 <span className="w-1 h-1 bg-muted-foreground rounded-full" />
@@ -110,6 +105,7 @@ export const HeroSection = () => {
             href={profile?.html_url || "https://github.com/Krapic"}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={t.hero.githubProfile}
             className="p-3 glass-card hover-lift hover:border-primary/50 transition-all duration-300"
           >
             <Github className="w-6 h-6" />
@@ -118,12 +114,14 @@ export const HeroSection = () => {
             href="https://www.linkedin.com/in/frane-krapic/"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={t.hero.linkedinProfile}
             className="p-3 glass-card hover-lift hover:border-primary/50 transition-all duration-300"
           >
             <Linkedin className="w-6 h-6" />
           </a>
           <a
             href="mailto:krapicf@gmail.com"
+            aria-label={t.hero.emailMe}
             className="p-3 glass-card hover-lift hover:border-primary/50 transition-all duration-300"
           >
             <Mail className="w-6 h-6" />
@@ -146,7 +144,7 @@ export const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
         >
-          <span className="text-sm">Explore my work</span>
+          <span className="text-sm">{t.hero.explore}</span>
           <ArrowDown className="w-4 h-4 animate-bounce" />
         </motion.a>
       </div>

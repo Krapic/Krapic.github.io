@@ -19,6 +19,12 @@ export const ThemeToggle = () => {
     localStorage.setItem(STORAGE_KEY, theme);
   }, [theme]);
 
+  useEffect(() => {
+    const onToggle = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
+    window.addEventListener("portfolio:toggle-theme", onToggle);
+    return () => window.removeEventListener("portfolio:toggle-theme", onToggle);
+  }, []);
+
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
