@@ -2,8 +2,10 @@ import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Github, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ContactForm } from "./ContactForm";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export const ContactSection = () => {
+  const { t } = useLanguage();
   return (
     <section id="contact" className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
@@ -14,12 +16,12 @@ export const ContactSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="code-font text-sm mb-4 block">// Contact</span>
+          <span className="code-font text-sm mb-4 block">{t.contact.tag}</span>
           <h2 className="section-heading">
-            Get In <span className="text-gradient">Touch</span>
+            {t.contact.headingPre} <span className="text-gradient">{t.contact.headingAccent}</span>
           </h2>
           <p className="section-subheading mx-auto">
-            Let's connect and discuss opportunities
+            {t.contact.subheading}
           </p>
         </motion.div>
 
@@ -36,7 +38,7 @@ export const ContactSection = () => {
                 <Mail className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <p className="font-medium">Email</p>
+                <p className="font-medium">{t.contact.email}</p>
                 <a href="mailto:krapicf@gmail.com" className="text-primary hover:underline">
                   krapicf@gmail.com
                 </a>
@@ -48,7 +50,7 @@ export const ContactSection = () => {
                 <Phone className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <p className="font-medium">Phone</p>
+                <p className="font-medium">{t.contact.phone}</p>
                 <a href="tel:+385915905749" className="text-primary hover:underline">
                   +385 91 590 5749
                 </a>
@@ -60,7 +62,7 @@ export const ContactSection = () => {
                 <MapPin className="w-5 h-5 text-primary" />
               </div>
               <div>
-                <p className="font-medium">Location</p>
+                <p className="font-medium">{t.contact.location}</p>
                 <p className="text-muted-foreground">Rijeka 51000, Croatia</p>
               </div>
             </div>

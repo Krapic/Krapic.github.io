@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { Github } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface Contribution {
   date: string;
@@ -28,6 +29,7 @@ const levelClass: Record<number, string> = {
 };
 
 export const ContributionGraph = () => {
+  const { t } = useLanguage();
   const { data, isLoading, isError } = useQuery({
     queryKey: ["github-contribs", "Krapic"],
     queryFn: fetchContribs,
@@ -66,20 +68,20 @@ export const ContributionGraph = () => {
             <div className="flex items-center gap-3">
               <Github className="w-5 h-5 text-primary" />
               <div>
-                <h3 className="text-lg font-semibold">GitHub Activity</h3>
-                <p className="text-xs text-muted-foreground">Last 12 months</p>
+                <h3 className="text-lg font-semibold">{t.contributions.title}</h3>
+                <p className="text-xs text-muted-foreground">{t.contributions.subtitle}</p>
               </div>
             </div>
             {!isLoading && (
               <span className="text-sm text-muted-foreground">
-                <span className="text-foreground font-semibold">{total}</span> contributions
+                <span className="text-foreground font-semibold">{total}</span> {t.contributions.contributions}
               </span>
             )}
           </div>
 
           {isLoading ? (
             <div className="h-32 flex items-center justify-center text-muted-foreground text-sm">
-              Loading contributions…
+              {t.contributions.loading}
             </div>
           ) : (
             <div className="overflow-x-auto">
@@ -90,18 +92,18 @@ export const ContributionGraph = () => {
                       <div
                         key={day.date}
                         className={`w-3 h-3 rounded-sm ${levelClass[day.level]} transition-colors`}
-                        title={`${day.count} contributions on ${day.date}`}
+                        title={`${day.count} ${t.contributions.contributions} · ${day.date}`}
                       />
                     ))}
                   </div>
                 ))}
               </div>
               <div className="flex items-center justify-end gap-2 mt-4 text-xs text-muted-foreground">
-                <span>Less</span>
+                <span>{t.contributions.less}</span>
                 {[0, 1, 2, 3, 4].map((l) => (
                   <div key={l} className={`w-3 h-3 rounded-sm ${levelClass[l]}`} />
                 ))}
-                <span>More</span>
+                <span>{t.contributions.more}</span>
               </div>
             </div>
           )}

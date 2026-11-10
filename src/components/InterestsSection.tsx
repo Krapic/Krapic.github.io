@@ -1,30 +1,12 @@
 import { motion } from "framer-motion";
 import { Cpu, Zap, Wrench, BookOpen } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-const interests = [
-  {
-    title: "Electronics & Hardware",
-    icon: Cpu,
-    description: "Exploring circuit design, PCB development, and working with various electronic components and sensors"
-  },
-  {
-    title: "Automation & Connected Systems",
-    icon: Zap,
-    description: "Exploring how devices, control logic, and user interfaces work together to automate everyday processes."
-  },
-  {
-    title: "DIY Projects",
-    icon: Wrench,
-    description: "Building custom embedded solutions, automation systems, and experimenting with new technologies"
-  },
-  {
-    title: "Technical Learning",
-    icon: BookOpen,
-    description: "Staying current with embedded systems trends, RTOS development, and low-level optimization techniques"
-  }
-];
+const icons = [Cpu, Zap, Wrench, BookOpen];
 
 export const InterestsSection = () => {
+  const { t } = useLanguage();
+  const interests = t.interests.items.map((it, i) => ({ ...it, icon: icons[i] ?? Cpu }));
   return (
     <section id="interests" className="py-24 px-6 bg-secondary/20">
       <div className="max-w-6xl mx-auto">
@@ -35,12 +17,12 @@ export const InterestsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="code-font text-sm mb-4 block">// Interests</span>
+          <span className="code-font text-sm mb-4 block">{t.interests.tag}</span>
           <h2 className="section-heading">
-            Interests & <span className="text-gradient">Hobbies</span>
+            {t.interests.headingPre} <span className="text-gradient">{t.interests.headingAccent}</span>
           </h2>
           <p className="section-subheading mx-auto">
-            Beyond coding - exploring hardware innovation and embedded technologies
+            {t.interests.subheading}
           </p>
         </motion.div>
 

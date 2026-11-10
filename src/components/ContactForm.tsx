@@ -6,21 +6,25 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { supabase } from "@/integrations/supabase/client";
 import { z } from "zod";
+import { useLanguage } from "@/i18n/LanguageContext";
+import type { Translations } from "@/i18n/translations";
 
-const contactSchema = z.object({
-  name: z.string().trim().min(1, "Name is required").max(100),
-  email: z.string().trim().email("Invalid email address").max(255),
-  message: z.string().trim().min(1, "Message is required").max(2000),
-});
+const contactSchema = (f: Translations["form"]) =>
+  z.object({
+    name: z.string().trim().min(1, f.nameRequired).max(100),
+    email: z.string().trim().email(f.emailInvalid).max(255),
+    message: z.string().trim().min(1, f.messageRequired).max(2000),
+  });
 
 export const ContactForm = () => {
+  const { t } = useLanguage();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const parsed = contactSchema.safeParse(form);
+    const parsed = contactSchema(t.form).safeParse(form);
     if (!parsed.success) {
       const fieldErrors: Record<string, string> = {};
       parsed.error.issues.forEach((issue) => {
@@ -45,16 +49,16 @@ export const ContactForm = () => {
       viewport={{ once: true }}
       className="glass-card p-8 max-w-2xl mx-auto mt-8"
     >
-      <h3 className="text-xl font-semibold mb-6 text-center">Send me a message</h3>
+      <h3 className="text-xl font-semibold mb-6 text-center">{t.form.title}</h3>
       {status === "sent" ? (
         <div className="flex flex-col items-center gap-3 py-8 text-center">
           <CheckCircle2 className="w-12 h-12 text-primary" />
-          <p className="font-medium">Message sent!</p>
+          <p className="font-medium">{t.form.sentTitle}</p>
           <p className="text-sm text-muted-foreground">
-            Thanks for reaching out — I'll get back to you soon.
+            {t.form.sentBody}
           </p>
           <Button variant="outline" onClick={() => setStatus("idle")}>
-            Send another
+            {t.form.sendAnother}
           </Button>
         </div>
       ) : (
@@ -62,7 +66,7 @@ export const ContactForm = () => {
           <div className="grid sm:grid-cols-2 gap-4">
             <div>
               <Input
-                placeholder="Your name"
+                placeholder={t.form.namePlaceholder}
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 maxLength={100}
@@ -72,7 +76,7 @@ export const ContactForm = () => {
             <div>
               <Input
                 type="email"
-                placeholder="Your email"
+                placeholder={t.form.emailPlaceholder}
                 value={form.email}
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                 maxLength={255}
@@ -82,7 +86,7 @@ export const ContactForm = () => {
           </div>
           <div>
             <Textarea
-              placeholder="Your message..."
+              placeholder={t.form.messagePlaceholder}
               rows={5}
               value={form.message}
               onChange={(e) => setForm({ ...form, message: e.target.value })}
@@ -92,7 +96,7 @@ export const ContactForm = () => {
           </div>
           {status === "error" && (
             <p className="text-sm text-destructive text-center">
-              Something went wrong — please try again or email me directly.
+              {t.form.error}
             </p>
           )}
           <Button type="submit" className="w-full" disabled={status === "sending"}>
@@ -101,7 +105,7 @@ export const ContactForm = () => {
             ) : (
               <Send className="w-4 h-4" />
             )}
-            {status === "sending" ? "Sending..." : "Send message"}
+            {status === "sending" ? t.form.sending : t.form.send}
           </Button>
         </form>
       )}

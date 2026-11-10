@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Eye } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export const VisitCounter = () => {
+  const { t, lang } = useLanguage();
   const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
@@ -25,7 +27,7 @@ export const VisitCounter = () => {
   return (
     <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground">
       <Eye className="w-4 h-4" />
-      <span className="code-font">{count.toLocaleString()} visits</span>
+      <span className="code-font">{count.toLocaleString(lang === "hr" ? "hr-HR" : "en-US")} {t.visits.label}</span>
     </div>
   );
 };

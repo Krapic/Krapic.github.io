@@ -1,29 +1,12 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-// Placeholder testimonials — replace with real recommendations.
-const testimonials = [
-  {
-    quote:
-      "Frane quickly picked up our motor-controller toolchain and became a reliable part of the firmware team. His hardware debugging skills are well beyond student level.",
-    name: "Engineering Mentor",
-    role: "Torp d.o.o.",
-  },
-  {
-    quote:
-      "As technical lead of our maze-solver project, Frane kept the team organized and delivered a clean, well-integrated application.",
-    name: "Project Teammate",
-    role: "University of Rijeka",
-  },
-  {
-    quote:
-      "His bachelor's thesis work on the connected fitness tracker showed strong independence — from sensor integration all the way to a published conference paper.",
-    name: "Thesis Supervisor",
-    role: "Faculty of Engineering, Rijeka",
-  },
-];
 
 export const TestimonialsSection = () => {
+  // Placeholder testimonials (in translations) — replace with real recommendations.
+  const { t: tr } = useLanguage();
+  const testimonials = tr.testimonials.items;
   return (
     <section id="testimonials" className="py-24 px-6 bg-secondary/20">
       <div className="max-w-6xl mx-auto">
@@ -34,19 +17,19 @@ export const TestimonialsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="code-font text-sm mb-4 block">// Testimonials</span>
+          <span className="code-font text-sm mb-4 block">{tr.testimonials.tag}</span>
           <h2 className="section-heading">
-            What People <span className="text-gradient">Say</span>
+            {tr.testimonials.headingPre} <span className="text-gradient">{tr.testimonials.headingAccent}</span>
           </h2>
           <p className="section-subheading mx-auto">
-            Feedback from mentors, supervisors, and teammates
+            {tr.testimonials.subheading}
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {testimonials.map((t, index) => (
             <motion.figure
-              key={t.name}
+              key={index}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}

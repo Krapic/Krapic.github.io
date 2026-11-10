@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
-import { resume } from "@/data/resume";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { GraduationCap, Calendar } from "lucide-react";
 
-const education = resume.education;
-
 export const EducationSection = () => {
+  const { t } = useLanguage();
+  const education = t.education.items;
   return (
     <section id="education" className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
@@ -15,12 +15,12 @@ export const EducationSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="code-font text-sm mb-4 block">// Education</span>
+          <span className="code-font text-sm mb-4 block">{t.education.tag}</span>
           <h2 className="section-heading">
-            <span className="text-gradient">Education</span>
+            <span className="text-gradient">{t.education.heading}</span>
           </h2>
           <p className="section-subheading mx-auto">
-            Computer Engineering, with a specialization in Computer Systems
+            {t.education.subheading}
           </p>
         </motion.div>
 

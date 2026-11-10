@@ -5,12 +5,14 @@ import { ProjectDetailModal } from "./ProjectDetailModal";
 import { ProjectCardSkeleton } from "./skeletons/ProjectCardSkeleton";
 import { useGitHubRepos } from "@/hooks/useGitHubRepos";
 import type { GitHubRepo } from "@/hooks/useGitHubRepos";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { Github, AlertCircle, RefreshCw } from "lucide-react";
 
 export const ProjectsSection = () => {
   const { data: repos, isLoading, isError, refetch } = useGitHubRepos();
   const [selectedRepo, setSelectedRepo] = useState<GitHubRepo | null>(null);
   const [activeFilter, setActiveFilter] = useState<string>("All");
+  const { t } = useLanguage();
 
   const languages = repos
     ? ["All", ...Array.from(new Set(repos.map((r) => r.language).filter((l): l is string => !!l)))]
@@ -28,12 +30,12 @@ export const ProjectsSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="code-font text-sm mb-4 block">// My projects</span>
+          <span className="code-font text-sm mb-4 block">{t.projects.tag}</span>
           <h2 className="section-heading">
-            GitHub <span className="text-gradient">Repositories</span>
+            {t.projects.headingPre} <span className="text-gradient">{t.projects.headingAccent}</span>
           </h2>
           <p className="section-subheading mx-auto">
-            A collection of my most significant projects and open-source contributions
+            {t.projects.subheading}
           </p>
         </motion.div>
 
@@ -53,14 +55,14 @@ export const ProjectsSection = () => {
           >
             <AlertCircle className="w-12 h-12 text-destructive" />
             <p className="text-muted-foreground text-center">
-              Error loading repositories.
+              {t.projects.error}
             </p>
             <button
               onClick={() => refetch()}
               className="flex items-center gap-2 px-4 py-2 glass-card hover:border-primary/50 transition-all"
             >
               <RefreshCw className="w-4 h-4" />
-              Try again
+              {t.projects.tryAgain}
             </button>
           </motion.div>
         )}
@@ -78,7 +80,7 @@ export const ProjectsSection = () => {
                       : "glass-card text-muted-foreground hover:border-primary/50 hover:text-foreground"
                   }`}
                 >
-                  {lang}
+                  {lang === "All" ? t.projects.all : lang}
                 </button>
               ))}
             </div>
@@ -107,7 +109,7 @@ export const ProjectsSection = () => {
                 className="inline-flex items-center gap-2 px-8 py-3 glass-card hover:border-primary/50 text-foreground font-medium transition-all duration-300 hover-lift"
               >
                 <Github className="w-5 h-5" />
-                View all on GitHub
+                {t.projects.viewAll}
               </a>
             </motion.div>
           </>
