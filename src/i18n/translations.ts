@@ -640,7 +640,7 @@ const hr: Translations = {
     download: "Preuzmi CV",
     preparing: "Priprema PDF-a…",
     error: "PDF nije moguće generirati. Pokušaj ponovno.",
-    generating: "Generiranje TV-a u PDF formatu.",
+    generating: "Generiranje CV-a u PDF formatu.",
   },
   palette: {
     placeholder: "Upiši naredbu ili pretraži...",

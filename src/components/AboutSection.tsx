@@ -1,7 +1,8 @@
-import { resume } from "@/data/resume";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { motion } from "framer-motion";
 
 export const AboutSection = () => {
+  const { t } = useLanguage();
   return (
     <section id="about" className="py-24 px-6 bg-secondary/20">
       <div className="max-w-4xl mx-auto">
@@ -12,12 +13,12 @@ export const AboutSection = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <span className="code-font text-sm mb-4 block">// About me</span>
+          <span className="code-font text-sm mb-4 block">{t.about.tag}</span>
           <h2 className="section-heading">
-            <span className="text-gradient">About Me</span>
+            <span className="text-gradient">{t.about.heading}</span>
           </h2>
           <p className="section-subheading mx-auto">
-            Firmware development and hardware integration
+            {t.about.subheading}
           </p>
         </motion.div>
 
@@ -29,7 +30,7 @@ export const AboutSection = () => {
           className="glass-card p-8"
         >
           <div className="space-y-6 text-lg leading-relaxed">
-            <p className="text-muted-foreground">{resume.summary}</p>
+            <p className="text-muted-foreground">{t.about.summary}</p>
           </div>
         </motion.div>
       </div>

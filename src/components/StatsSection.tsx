@@ -3,6 +3,7 @@ import { useMemo } from "react";
 import { useCountUp } from "@/hooks/useCountUp";
 import { useGitHubProfile } from "@/hooks/useGitHubProfile";
 import { useGitHubRepos } from "@/hooks/useGitHubRepos";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { Code, Cpu, Layers, Award } from "lucide-react";
 
 const CAREER_START = new Date("2023-09-01");
@@ -46,6 +47,7 @@ const StatItem = ({
 export const StatsSection = () => {
   const { data: profile } = useGitHubProfile();
   const { data: repos } = useGitHubRepos();
+  const { t } = useLanguage();
 
   const stats = useMemo(() => {
     const repoCount = profile?.public_repos ?? 11;
@@ -58,19 +60,19 @@ export const StatsSection = () => {
     );
 
     return [
-      { value: repoCount, suffix: "+", label: "GitHub Repositories", Icon: Code },
-      { value: langCount, suffix: "+", label: "Languages Used", Icon: Layers },
-      { value: 5, suffix: "+", label: "MCU Platforms", Icon: Cpu },
-      { value: years, suffix: "+", label: "Years of Experience", Icon: Award },
+      { value: repoCount, suffix: "+", label: t.stats.repos, Icon: Code },
+      { value: langCount, suffix: "+", label: t.stats.languages, Icon: Layers },
+      { value: 5, suffix: "+", label: t.stats.mcus, Icon: Cpu },
+      { value: years, suffix: "+", label: t.stats.years, Icon: Award },
     ];
-  }, [profile, repos]);
+  }, [profile, repos, t]);
 
   return (
     <section className="py-16 px-6">
       <div className="max-w-4xl mx-auto">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {stats.map((stat, index) => (
-            <StatItem key={stat.label} {...stat} index={index} />
+            <StatItem key={index} {...stat} index={index} />
           ))}
         </div>
       </div>

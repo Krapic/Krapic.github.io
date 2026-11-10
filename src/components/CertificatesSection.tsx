@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Award, ExternalLink, FileText } from "lucide-react";
 import { resume } from "@/data/resume";
+import { useLanguage } from "@/i18n/LanguageContext";
 const miproPaperPdf = { url: `${import.meta.env.BASE_URL}docs/mipro-2026-fitness-tracker-paper.pdf` };
 const thesisPdf = { url: `${import.meta.env.BASE_URL}docs/fitness-tracker-bachelor-thesis.pdf` };
 
@@ -28,6 +29,8 @@ const achievements = [
 ];
 
 export const CertificatesSection = () => {
+  const { t } = useLanguage();
+  const items = achievements.map((a, i) => ({ ...a, ...t.achievements.items[i] }));
   return (
     <section id="achievements" className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
@@ -38,17 +41,17 @@ export const CertificatesSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="code-font text-sm mb-4 block">// Achievements</span>
+          <span className="code-font text-sm mb-4 block">{t.achievements.tag}</span>
           <h2 className="section-heading">
-            Certificates & <span className="text-gradient">Achievements</span>
+            {t.achievements.headingPre} <span className="text-gradient">{t.achievements.headingAccent}</span>
           </h2>
           <p className="section-subheading mx-auto">
-            Publications, awards, and notable milestones
+            {t.achievements.subheading}
           </p>
         </motion.div>
 
         <div className="space-y-6">
-          {achievements.map((a, index) => (
+          {items.map((a, index) => (
             <motion.div
               key={a.title}
               initial={{ opacity: 0, y: 30 }}
@@ -73,7 +76,7 @@ export const CertificatesSection = () => {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 mt-3 text-sm text-primary hover:underline"
                   >
-                    View publication
+                    {t.achievements.viewPublication}
                     <ExternalLink className="w-3.5 h-3.5" />
                   </a>
                 )}

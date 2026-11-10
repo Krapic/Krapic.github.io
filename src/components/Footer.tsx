@@ -1,13 +1,8 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-const quickLinks = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Contact", href: "#contact" },
-];
+const quickLinks = (["about", "experience", "projects", "skills", "contact"] as const).map((key) => ({ key, href: `#${key}` }));
 
 const socials = [
   { Icon: Github, href: "https://github.com/Krapic", label: "GitHub" },
@@ -16,6 +11,7 @@ const socials = [
 ];
 
 export const Footer = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -36,14 +32,13 @@ export const Footer = () => {
           <div className="space-y-3">
             <span className="text-xl font-bold glow-text">&lt;Frane Krapić /&gt;</span>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Embedded engineer crafting reliable firmware and IoT solutions for
-              resource-constrained hardware.
+              {t.footer.tagline}
             </p>
           </div>
 
           <div>
             <h3 className="text-sm font-semibold mb-4 uppercase tracking-wider text-foreground">
-              Quick Links
+              {t.footer.quickLinks}
             </h3>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
@@ -53,7 +48,7 @@ export const Footer = () => {
                     onClick={(e) => handleClick(e, link.href)}
                     className="text-sm text-muted-foreground hover:text-primary transition-colors"
                   >
-                    {link.label}
+                    {t.nav[link.key]}
                   </a>
                 </li>
               ))}
@@ -62,7 +57,7 @@ export const Footer = () => {
 
           <div>
             <h3 className="text-sm font-semibold mb-4 uppercase tracking-wider text-foreground">
-              Connect
+              {t.footer.connect}
             </h3>
             <div className="flex gap-3">
               {socials.map(({ Icon, href, label }) => (
@@ -79,19 +74,20 @@ export const Footer = () => {
               ))}
             </div>
             <p className="text-xs text-muted-foreground mt-4">Rijeka 51000, Croatia</p>
+            <p className="text-xs text-muted-foreground mt-2 code-font hidden md:block">{t.footer.terminalHint}</p>
           </div>
         </div>
 
         <div className="pt-6 border-t border-border flex flex-col md:flex-row items-center justify-between gap-3">
           <span className="text-muted-foreground text-xs">
-            © {currentYear} Frane Krapić. All rights reserved.
+            © {currentYear} Frane Krapić. {t.footer.rights}
           </span>
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
             className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors"
-            aria-label="Back to top"
+            aria-label={t.footer.backToTop}
           >
-            Back to top
+            {t.footer.backToTop}
             <ArrowUp className="w-3 h-3" />
           </button>
         </div>

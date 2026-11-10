@@ -1,38 +1,12 @@
 import { motion } from "framer-motion";
 import { Code2, Cpu, Rocket, Briefcase } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
-const milestones = [
-  {
-    icon: Code2,
-    year: "2019",
-    title: "First lines of code",
-    description:
-      "Started programming at Salesian Classical Gymnasium, discovering a passion for problem-solving through code.",
-  },
-  {
-    icon: Cpu,
-    year: "2021",
-    title: "Embedded systems & IoT",
-    description:
-      "Dove into microcontrollers, ESP32 and Arduino projects — connecting the physical world with software.",
-  },
-  {
-    icon: Briefcase,
-    year: "2023",
-    title: "First developer role",
-    description:
-      "Joined INCUBIS d.o.o. as a Full Stack Developer, building real-world web applications.",
-  },
-  {
-    icon: Rocket,
-    year: "2024",
-    title: "Embedded Developer at Torp",
-    description:
-      "Currently working on embedded systems at Torp d.o.o. while studying at the Technical Faculty, University of Rijeka.",
-  },
-];
+const icons = [Code2, Cpu, Briefcase, Rocket];
 
 export const JourneySection = () => {
+  const { t } = useLanguage();
+  const milestones = t.journey.milestones.map((m, i) => ({ ...m, icon: icons[i] ?? Code2 }));
   return (
     <section id="journey" className="py-24 px-6">
       <div className="max-w-4xl mx-auto">
@@ -43,12 +17,12 @@ export const JourneySection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="code-font text-sm mb-4 block">// My journey</span>
+          <span className="code-font text-sm mb-4 block">{t.journey.tag}</span>
           <h2 className="section-heading">
-            The Road <span className="text-gradient">So Far</span>
+            {t.journey.headingPre} <span className="text-gradient">{t.journey.headingAccent}</span>
           </h2>
           <p className="section-subheading mx-auto">
-            Key milestones in my programming journey
+            {t.journey.subheading}
           </p>
         </motion.div>
 

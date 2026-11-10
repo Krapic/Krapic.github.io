@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ExternalLink, Github, Star, GitFork, Code } from "lucide-react";
 import type { GitHubRepo } from "@/hooks/useGitHubRepos";
 import { resume } from "@/data/resume";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface ProjectCardProps {
   repo: GitHubRepo;
@@ -31,6 +32,7 @@ const languageColors: Record<string, string> = {
 };
 
 export const ProjectCard = ({ repo, index, onClick }: ProjectCardProps) => {
+  const { t } = useLanguage();
   const project = resume.projects.find(project => project.repository === repo.name);
   const conference = project?.conference;
   const languageColor = repo.language ? languageColors[repo.language] || "bg-gray-400" : "";
@@ -79,11 +81,11 @@ export const ProjectCard = ({ repo, index, onClick }: ProjectCardProps) => {
         </div>
 
         {conference && <a href={conference.url} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="self-start mb-3 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-primary text-xs hover:bg-primary/20">
-          Conference paper · {conference.event} ↗
+          {t.projects.conferencePaper} · {conference.event} ↗
         </a>}
         {project?.context && <p className="text-primary text-xs mb-3">{project.context}</p>}
         <p className="text-muted-foreground text-sm mb-4 line-clamp-2 flex-1">
-          {repo.description || "No description"}
+          {repo.description || t.projects.noDescription}
         </p>
 
         {repo.topics && repo.topics.length > 0 && (

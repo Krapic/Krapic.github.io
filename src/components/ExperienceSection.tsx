@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { resume } from "@/data/resume";
 import { Briefcase, Calendar } from "lucide-react";
-
-const experiences = resume.experience;
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export const ExperienceSection = () => {
+  const { t } = useLanguage();
+  const experiences = resume.experience.map((e, i) => ({ ...e, ...t.experience.items[i] }));
   return (
     <section id="experience" className="py-24 px-6 bg-secondary/20">
       <div className="max-w-4xl mx-auto">
@@ -15,13 +16,12 @@ export const ExperienceSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <span className="code-font text-sm mb-4 block">// Experience</span>
+          <span className="code-font text-sm mb-4 block">{t.experience.tag}</span>
           <h2 className="section-heading">
-            Work <span className="text-gradient">Experience</span>
+            {t.experience.headingPre} <span className="text-gradient">{t.experience.headingAccent}</span>
           </h2>
           <p className="section-subheading mx-auto">
-            Professional journey spanning full-stack web development and
-            embedded systems
+            {t.experience.subheading}
           </p>
         </motion.div>
 
