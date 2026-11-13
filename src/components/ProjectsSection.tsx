@@ -44,6 +44,7 @@ export const ProjectsSection = () => {
             start: "top 100px",
             end: () => `+=${items.length * 220 + overflow()}`,
             pin: true,
+            refreshPriority: 1,
             scrub: 0.8,
             anticipatePin: 1,
             invalidateOnRefresh: true,
@@ -55,7 +56,7 @@ export const ProjectsSection = () => {
         });
         return () => gsap.set([wrap, grid, ...items], { clearProps: "all" });
       });
-      const id = setTimeout(() => ScrollTrigger.refresh(), 400);
+      const id = setTimeout(() => { ScrollTrigger.sort(); ScrollTrigger.refresh(); }, 400);
       return () => clearTimeout(id);
     },
     { dependencies: [filteredRepos?.length, activeFilter], revertOnUpdate: true },

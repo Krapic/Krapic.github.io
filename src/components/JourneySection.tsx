@@ -27,6 +27,7 @@ export const JourneySection = () => {
             start: "top top",
             end: () => `+=${items.length * 350}`,
             pin: true,
+            refreshPriority: -1,
             scrub: 0.8,
             anticipatePin: 1,
             invalidateOnRefresh: true,
@@ -37,7 +38,7 @@ export const JourneySection = () => {
           tl.to(el, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power2.out" }, i);
         });
       });
-      const id = setTimeout(() => ScrollTrigger.refresh(), 500);
+      const id = setTimeout(() => { ScrollTrigger.sort(); ScrollTrigger.refresh(); }, 500);
       return () => clearTimeout(id);
     },
     { scope: sectionRef, dependencies: [t] },
