@@ -1,7 +1,4 @@
-import { useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ProjectCard } from "./ProjectCard";
 import { ProjectDetailModal } from "./ProjectDetailModal";
@@ -11,56 +8,17 @@ import type { GitHubRepo } from "@/hooks/useGitHubRepos";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Github, AlertCircle, RefreshCw } from "lucide-react";
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
-
 export const ProjectsSection = () => {
   const { data: repos, isLoading, isError, refetch } = useGitHubRepos();
   const [selectedRepo, setSelectedRepo] = useState<GitHubRepo | null>(null);
   const [activeFilter, setActiveFilter] = useState<string>("All");
   const { t } = useLanguage();
-  const pinRef = useRef<HTMLDivElement>(null);
 
   const languages = repos
     ? ["All", ...Array.from(new Set(repos.map((r) => r.language).filter((l): l is string => !!l)))]
     : ["All"];
   const filteredRepos =
     activeFilter === "All" ? repos : repos?.filter((r) => r.language === activeFilter);
-
-  useGSAP(
-    () => {
-      if (!filteredRepos?.length || !pinRef.current) return;
-      const mm = gsap.matchMedia();
-      mm.add("(min-width: 768px) and (prefers-reduced-motion: no-preference)", () => {
-        const wrap = pinRef.current!;
-        const grid = wrap.querySelector<HTMLElement>(".projects-grid")!;
-        const items = gsap.utils.toArray<HTMLElement>(".project-item", wrap);
-        const viewH = () => window.innerHeight - 120;
-        const overflow = () => Math.max(0, grid.offsetHeight - viewH());
-        gsap.set(wrap, { height: () => Math.min(grid.offsetHeight, viewH()), overflow: "hidden" });
-        gsap.set(items, { opacity: 0, y: 50, scale: 0.95 });
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: wrap,
-            start: "top 100px",
-            end: () => `+=${items.length * 220 + overflow()}`,
-            pin: true,
-            refreshPriority: 1,
-            scrub: 0.8,
-            anticipatePin: 1,
-            invalidateOnRefresh: true,
-          },
-        });
-        tl.to(grid, { y: () => -overflow(), ease: "none", duration: items.length }, 0);
-        items.forEach((el, i) => {
-          tl.to(el, { opacity: 1, y: 0, scale: 1, duration: 0.6, ease: "power2.out" }, i * 0.9);
-        });
-        return () => gsap.set([wrap, grid, ...items], { clearProps: "all" });
-      });
-      const id = setTimeout(() => { ScrollTrigger.sort(); ScrollTrigger.refresh(); }, 400);
-      return () => clearTimeout(id);
-    },
-    { dependencies: [filteredRepos?.length, activeFilter], revertOnUpdate: true },
-  );
 
   return (
     <section id="projects" className="py-24 px-6">
@@ -126,14 +84,15 @@ export const ProjectsSection = () => {
                 </button>
               ))}
             </div>
-            <div ref={pinRef}>
-              <div className="projects-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6 p-1">
-                {filteredRepos?.map((repo, index) => (
-                  <div key={repo.id} className="project-item h-full">
-                    <ProjectCard repo={repo} index={index} onClick={() => setSelectedRepo(repo)} />
-                  </div>
-                ))}
-              </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredRepos?.map((repo, index) => (
+                <ProjectCard
+                  key={repo.id}
+                  repo={repo}
+                  index={index}
+                  onClick={() => setSelectedRepo(repo)}
+                />
+              ))}
             </div>
 
             <motion.div
