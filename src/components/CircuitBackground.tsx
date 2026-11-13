@@ -21,22 +21,41 @@ export const CircuitBackground = () => {
 
     let animationId: number;
     const particles: Particle[] = [];
-    const particleCount = 60;
-    const connectionDistance = 120;
+    const isMobile = window.innerWidth < 768;
+    const particleCount = isMobile ? 30 : 60;
+    const connectionDistance = isMobile ? 90 : 120;
+    let W = 0;
+    let H = 0;
+    let lastWidth = 0;
 
-    const resize = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
+    // Mobile browsers fire "resize" when the address bar shows/hides while scrolling.
+    // Only rebuild the canvas when the width really changes, and keep CSS size in sync with DPR.
+    const resize = (force = false) => {
+      const w = canvas.offsetWidth;
+      const h = canvas.offsetHeight;
+      if (!force && w === lastWidth) return;
+      lastWidth = w;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      W = w;
+      H = h;
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      for (const p of particles) {
+        p.x = Math.min(Math.max(p.x, 0), W);
+        p.y = Math.min(Math.max(p.y, 0), H);
+      }
     };
+    const onResize = () => resize();
 
-    resize();
-    window.addEventListener("resize", resize);
+    resize(true);
+    window.addEventListener("resize", onResize);
 
     // Initialize particles
     for (let i = 0; i < particleCount; i++) {
       particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
+        x: Math.random() * W,
+        y: Math.random() * H,
         vx: (Math.random() - 0.5) * 0.4,
         vy: (Math.random() - 0.5) * 0.4,
         size: Math.random() * 2 + 1,
@@ -45,15 +64,17 @@ export const CircuitBackground = () => {
     }
 
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, W, H);
 
       // Update and draw particles
       for (const p of particles) {
         p.x += p.vx;
         p.y += p.vy;
 
-        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+        if (p.x < 0) { p.x = 0; p.vx = Math.abs(p.vx); }
+        else if (p.x > W) { p.x = W; p.vx = -Math.abs(p.vx); }
+        if (p.y < 0) { p.y = 0; p.vy = Math.abs(p.vy); }
+        else if (p.y > H) { p.y = H; p.vy = -Math.abs(p.vy); }
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
@@ -92,7 +113,7 @@ export const CircuitBackground = () => {
 
     return () => {
       cancelAnimationFrame(animationId);
-      window.removeEventListener("resize", resize);
+      window.removeEventListener("resize", onResize);
     };
   }, []);
 
