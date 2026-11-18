@@ -124,6 +124,7 @@ const en = {
     viewOnGithub: "View on GitHub",
     liveDemo: "Live Demo",
     close: "Close",
+    projectDetails: {} as Record<string, { description: string; context?: string; conferenceTitle?: string; conferenceDate?: string }>,
   },
   journey: {
     tag: "// My journey",
@@ -341,6 +342,7 @@ const en = {
     cvDownloading: "Generating CV… check your downloads.",
     unknown: "command not found — type 'help'",
     close: "Close terminal",
+    input: "Terminal input",
   },
   notFound: {
     title: "Oops! Page not found",
@@ -474,6 +476,32 @@ const hr: Translations = {
     viewOnGithub: "Vidi na GitHubu",
     liveDemo: "Demo uživo",
     close: "Zatvori",
+    projectDetails: {
+      "medri-plan-content": {
+        description: "Javni paket sadržaja MedRi Plan za automatsko ažuriranje aplikacije.",
+      },
+      "Krapic.github.io": {
+        description: "Repozitorij moje osobne web-stranice objavljene putem GitHub Pagesa na adresi krapic.github.io.",
+      },
+      ThermalPrinter: {
+        description: "Windows aplikacija za termalne pisače širine 58 mm koja radi bez internetske veze. Uključuje vizualni uređivač, pregled uživo, predloške te podršku za tekst, slike, QR kodove i barkodove.",
+      },
+      "Smart-Home-LED-Control-ESP32-And-Flutter": {
+        description: "IoT sustav pametne kućne rasvjete koji povezuje mikrokontroler ESP32 s mobilnom aplikacijom Flutter. Uključuje početno postavljanje putem BLE-a, daljinsko upravljanje u stvarnom vremenu putem MQTT-a, praćenje okolišnih senzora te automatsko osvjetljenje prema pokretu i ambijentalnom svjetlu.",
+      },
+      "ESP32-RFID-Door-Unlocker": {
+        description: "Modularni sustav otključavanja vrata na platformi ESP32 s RFID čitačem RC522 (13,56 MHz). Sadrži popis dopuštenih UID-ova pohranjen u NVS-u, upis kartica putem administratorske kartice i serijske konzole, relejno upravljanje električnom bravom, zvučne i LED obavijesti, OTA ažuriranje firmvera te MQTT integraciju za zapisivanje događaja i opcionalne naredbe.",
+      },
+      "Fitness-Tracker-With-Wifi6-Connectivity": {
+        context: "Projekt završnog rada",
+        description: "Istraživački prototip ugrađenog sustava koji povezuje praćenje pokreta, sučelje na uređaju i bežičnu telemetriju bez posredovanja mobitela. Integrira očitanja akcelerometra, prikaz putem LVGL-a i MQTT preko TLS-a na nRF7002 DK uz Zephyr RTOS. Firmver uključuje prepoznavanje koraka, daljinske naredbe i red telemetrijskih podataka u RAM-u za privremene prekide veze.",
+        conferenceTitle: "Uređaj za praćenje tjelesne aktivnosti povezan s internetom putem Wi-Fi mreže",
+        conferenceDate: "26. svibnja 2026., Opatija, Hrvatska",
+      },
+      "AI-Maze-Solver": {
+        description: "Interaktivna aplikacija za generiranje labirinata i istraživanje načina na koje ih rješavaju različiti algoritmi pretraživanja. Kao tehnički voditelj projekta šestero studenata izradio sam sučelje u Pygameu, integraciju aplikacije i automat stanja za interaktivnu vizualizaciju algoritama i statistiku performansi. Tim je implementirao BFS, DFS i A*.",
+      },
+    },
   },
   journey: {
     tag: "// Moj put",
@@ -691,6 +719,7 @@ const hr: Translations = {
     cvDownloading: "Generiranje CV-a… provjeri preuzimanja.",
     unknown: "naredba nije pronađena — upiši 'help'",
     close: "Zatvori terminal",
+    input: "Unos naredbe u terminal",
   },
   notFound: {
     title: "Ups! Stranica nije pronađena",

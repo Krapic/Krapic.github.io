@@ -35,6 +35,7 @@ export const ProjectCard = ({ repo, index, onClick }: ProjectCardProps) => {
   const { t } = useLanguage();
   const project = resume.projects.find(project => project.repository === repo.name);
   const conference = project?.conference;
+  const localized = t.modal.projectDetails[repo.name];
   const languageColor = repo.language ? languageColors[repo.language] || "bg-gray-400" : "";
 
   return (
@@ -60,7 +61,7 @@ export const ProjectCard = ({ repo, index, onClick }: ProjectCardProps) => {
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
-              aria-label="GitHub repository"
+              aria-label={t.modal.viewOnGithub}
               onClick={(e) => e.stopPropagation()}
             >
               <Github className="w-5 h-5" />
@@ -71,7 +72,7 @@ export const ProjectCard = ({ repo, index, onClick }: ProjectCardProps) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
-                aria-label="Live demo"
+                aria-label={t.modal.liveDemo}
                 onClick={(e) => e.stopPropagation()}
               >
                 <ExternalLink className="w-5 h-5" />
@@ -83,9 +84,9 @@ export const ProjectCard = ({ repo, index, onClick }: ProjectCardProps) => {
         {conference && <a href={conference.url} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="self-start mb-3 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/30 text-primary text-xs hover:bg-primary/20">
           {t.projects.conferencePaper} · {conference.event} ↗
         </a>}
-        {project?.context && <p className="text-primary text-xs mb-3">{project.context}</p>}
+        {project?.context && <p className="text-primary text-xs mb-3">{localized?.context ?? project.context}</p>}
         <p className="text-muted-foreground text-sm mb-4 line-clamp-2 flex-1">
-          {repo.description || t.projects.noDescription}
+          {localized?.description || repo.description || t.projects.noDescription}
         </p>
 
         {repo.topics && repo.topics.length > 0 && (
